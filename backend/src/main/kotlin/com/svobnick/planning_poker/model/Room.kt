@@ -1,11 +1,11 @@
 package com.svobnick.planning_poker.model
 
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
+import org.springframework.data.annotation.Id
+import org.springframework.data.redis.core.RedisHash
 
-@Entity
+@RedisHash
 data class Room(
-    @Id val roomId: String,
-    @Column(name = "created_at", nullable = false) val createdAt: Long
+    @Id val roomId: String? = null,
+    val createdAt: Long = System.currentTimeMillis(),
+    var task: Task? = null
 )
