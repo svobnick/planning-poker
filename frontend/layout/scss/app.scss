@@ -31,10 +31,10 @@ a {
 }
 
 // Import components
-@import "parts/*.scss";
+@import "parts/text-block";
 
 // Import layouts
-@import "layout/*.scss";
+@import "layout/head";
 
 // Backward compatibility
 @import "css/*.scss";
