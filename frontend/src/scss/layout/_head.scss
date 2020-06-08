@@ -1,0 +1,60 @@
+.head {
+  display: flex;
+  position: relative;
+  flex-flow: column;
+
+  width: 42%;
+  max-width: 100%;
+
+  padding: 3rem;
+
+  background-color: #ECEEFF;
+  border-radius: 8px 0 0 0;
+
+  @media screen and (max-width: 1023px) {
+    padding: 2rem;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 2rem 1rem;
+  }
+
+  .head__title {
+    @extend %title;
+
+    @media screen and (max-width: 1023px) {
+      margin: 1rem 0;
+      text-align: center;
+    }
+  }
+
+  .head__image {
+    display: block;
+    position: relative;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 1rem 0;
+
+    @media screen and (max-width: 767px) {
+      width: 25%;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 410px) {
+      width: 60%;
+    }
+
+    & > img {
+      display: block;
+      position: relative;
+
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+  }
+}

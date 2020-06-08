@@ -1,0 +1,128 @@
+.players {
+  display: block;
+  position: relative;
+
+  width: 100%;
+
+  background: #ECEEFF;
+  border-radius: 10px;
+
+  padding: 2rem 1.5rem 3rem;
+
+  @media screen and (max-width: 1023px){
+    padding: 2rem 1rem;
+  }
+
+  .players__title {
+    @extend %h2;
+  }
+
+  .players__person {
+    display: flex;
+    position: relative;
+    flex-flow: row wrap;
+
+    margin: 1.5rem 0 0;
+
+    .players__person-item {
+      display: block;
+      position: relative;
+
+      background-color: #ECEEFF;
+
+      padding: 0.25rem 1rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      border-radius: 8px;
+      box-shadow: 2px 4px 10px rgba(151, 153, 255, 0.3);
+
+      cursor: default;
+
+      .players__person-item-text {
+        @extend %person;
+      }
+
+      .players__person-item-text--vote {
+        @extend %person;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          background: url('../assets/images/check-item.svg') no-repeat;
+          width:  18px;
+          height: 18px;
+
+          overflow: hidden;
+          vertical-align: top;
+
+          margin-left: 0.25rem;
+        }
+      }
+    }
+  }
+
+  .players__invite {
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin: 2rem 0 0;
+
+    @media screen and (max-width: 1023px){
+      flex-flow: row wrap;
+    }
+
+    .players__invite-input {
+      display: block;
+      flex: auto;
+      position: relative;
+
+      input[value] {
+        @extend %invite;
+      }
+
+      .players__invite-input-label {
+        @extend %lable;
+      }
+
+      .players__invite-input-control {
+        display: flex;
+        position: relative;
+
+        outline: none;
+
+        width: 100%;
+        margin-top: 0.25rem;
+        padding: 0.5rem;
+
+        background: rgba(236, 238, 255, 0.5);
+        box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
+        border-radius: 8px;
+      }
+    }
+
+    .players__invite-link {
+      display: flex;
+      position: relative;
+
+      @media screen and (max-width: 1023px){
+        width: 100%;
+      }
+
+      .players__invite-button {
+        @include button();
+        margin-left: 1rem;
+
+        @media screen and (max-width: 1023px){
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}

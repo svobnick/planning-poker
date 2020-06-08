@@ -1,0 +1,40 @@
+// Reset default styles
+@import "helpers/reset";
+
+// Widtg and color variables
+@import "helpers/variables";
+
+// Common use mixins
+@import "helpers/mixins";
+
+// Text styles snippets
+@import "helpers/snippets";
+
+
+html {
+  background-color: $color-background;
+}
+
+body {
+  width: $width-content;
+  max-width: 100%;
+
+  margin: 0 auto;
+
+  font: normal 16px/1.5 'Rubik', sans-serif;;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Import components
+@import "parts/*.scss";
+
+// Import layouts
+@import "layout/*.scss";
+
+// Backward compatibility
+@import "css/*.scss";

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
+
+    <link rel="stylesheet" href="/assets/styles.min.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&subset=cyrillic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <title>Planning Poker</title>
+
+</head>
+
+<body>
+    <header class="header">
+        <a class="header__link" href="index.html">
+            <h1 class="header__logo">Planning<br> Poker</h1>
+        </a>
+    </header>
+    <main class="main--game">
+
+        <div class="title">
+            <div class="title__input">
+                <label class="title__input-label" for="title"></label>
+                <textarea class="title__input-control" id="title" placeholder="Task description" rows="2"></textarea>
+            </div>
+            <div class="title__timer">
+                <p class="title__timer-text">01:39</p>
+                <a class="title__timer-link" href="/result.html">
+                    <button class="title__timer-button">Stop</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="card">
+                <div class="card__row">
+                    <div class="card__item">
+                        <p class="card__item-fib">&frac12;</p>
+                    </div>
+                    <div class="card__item">
+                        <p class="card__item-fib">1</p>
+                    </div>
+                    <div class="card__item">
+                        <p class="card__item-fib">2</p>
+                    </div>
+                    <div class="card__item">
+                        <p class="card__item-fib">3</p>
+                    </div>
+                </div>
+                <div class="card__row">
+                    <div class="card__item">
+                        <p class="card__item-fib">5</p>
+                    </div>
+                    <div class="card__item">
+                        <p class="card__item-fib">8</p>
+                    </div>
+                    <div class="card__vote">
+                        <p class="card__vote-fib">13</p>
+                        <svg class="card__vote-icon" viewBox="0 0 512 512">
+                            <path d="M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z" style="fill:none;stroke:#9b51e0;stroke-miterlimit:10;stroke-width:32px"/>
+                            <polyline points="352 176 217.6 336 160 272" style="fill:none;stroke:#9b51e0;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/>
+                        </svg>
+                    </div>
+                    <div class="card__item">
+                        <p class="card__item-fib">21</p>
+                    </div>
+                </div>
+                    <div class="card__row">
+                        <div class="card__item">
+                            <p class="card__item-fib">34</p>
+                        </div>
+                        <div class="card__item">
+                            <p class="card__item-fib">55</p>
+                        </div>
+                        <div class="card__submit">
+                            <p class="card__submit-text">Clear Vote</p>
+                        </div>
+                        <div class="card__item"></div>
+                    </div>
+                </div>
+            <div class="unit">
+                <div class="players">
+                    <h2 class="players__title">Players</h2>
+                    <div class="players__person">
+                        <div class="players__person-item">
+                            <p class="players__person-item-text--vote">John Doe</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Sally Young</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text--vote">Kira Fischer</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Ryker Chambers</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Alfred Pitt</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Sally Young</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Darnell Winters</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text--vote">Ronan Goodman</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Lol Kek</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Kira Fischer</p>
+                        </div>
+                        <div class="players__person-item">
+                            <p class="players__person-item-text">Ryker Chambers</p>
+                        </div>
+                    </div>
+                    <div class="players__invite">
+                        <div class="players__invite-input">
+                            <label class="players__invite-input-label" for="invite">Invite player</label><br>
+                            <input type="text" class="players__invite-input-control" id="invite" value="https://open.spotify.com/collection/tracks" disabled/>
+                        </div>
+                        <a class="players__invite-link" href="#">
+                            <button class="players__invite-button">Copy link</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="info__copy">
+                        <p class="info__copy-text">© We made it, 2020</p>
+                    </div>
+                    <div class="info__nav">
+                        <a class="info__nav-item" href="#">How It Works</a>
+                        <a class="info__nav-item" href="/about.html">About</a>
+                        <a class="info__nav-item" href="/contacts.html">Contacts</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.text-block {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  @media screen and (max-width: 767px) {
+    padding: 1rem 0;
+  }
+
+  .text-block__title {
+    display: block;
+    position: relative;
+
+    width: 20%;
+    max-width: 100%;
+
+    @extend %about-title;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .text-block__content {
+    display: block;
+    position: relative;
+
+    width: 80%;
+    max-width: 100%;
+
+    @extend %about-text;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+.title {
+  display: flex;
+  position: relative;
+  flex-flow: row wrap;
+
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 1rem;
+
+
+  .title__input {
+    display: block;
+    position: relative;
+
+    width: 50%;
+    max-width: 100%;
+
+    @media screen and (max-width: 767px){
+      width: 100%;
+    }
+
+    .title__input-control {
+      display: block;
+      position: relative;
+
+      outline: none;
+
+      width: 100%;
+      margin-top: 0.25rem;
+      padding: 0.5rem;
+
+      min-height: 2rem;
+
+      background: rgba(236, 238, 255, 0.5);
+      box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
+      border-radius: 8px;
+    }
+
+    textarea {
+      font-size: 1.125rem;
+      line-height: 1.4;
+      letter-spacing: 0.02em;
+
+      box-sizing: border-box;
+      padding-left: 1rem;
+
+      resize: vertical;
+
+      color: #585EE6;
+      font-weight: 500;
+
+      width: 100%;
+
+      @media screen and (max-width: 1023px){
+        font-size: 1.15rem;
+      }
+      @media screen and (max-width: 767px){
+        font-size: 1rem;
+      }
+
+      &::placeholder {
+        font-weight: 500;
+        color: #c5cbff;
+      }
+
+      &::-webkit-resizer {
+        display: none;
+        background: url(../assets/images/vertical-resize.svg) no-repeat;
+        background-size: 15px;
+      }
+    }
+
+  }
+  .title__timer {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 40%;
+
+    margin: 0.5rem 0 0;
+
+    @media screen and (max-width: 767px){
+      width: 100%;
+      margin: 1rem 1rem 0;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title__timer-text {
+      @extend %timer;
+    }
+
+    .title__timer-button {
+      margin: 0 1rem;
+      @include light-button();
+    }
+  }
+}

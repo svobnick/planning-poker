@@ -1,0 +1,27 @@
+.login {
+  display: block;
+  align-self: center;
+
+  max-width: 100%;
+  width: 58%;
+
+  padding: 3rem 2rem 2rem;
+
+  @media screen and (max-width: 1023px) {
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 410px) {
+    padding: 2rem 0;
+  }
+
+  .login__title {
+    margin-bottom: 2rem;
+    @extend %h2;
+  }
+
+  @media screen and (max-width: 767px) {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+}

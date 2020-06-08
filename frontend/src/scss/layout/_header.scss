@@ -1,0 +1,11 @@
+.header {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  padding: 2rem 1rem 0.5rem;
+
+  .header__logo {
+    @extend %logo;
+  }
+}

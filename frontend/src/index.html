@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
+
+    <link rel="stylesheet" href="/assets/styles.min.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&subset=cyrillic&display=swap" rel="stylesheet">
+
+    <title>Planning Poker</title>
+</head>
+
+<body>
+
+    <main class="main">
+        <div class="container">
+            <div class="head">
+                <h1 class="head__title">Planning Poker</h1>
+                <img class="head__image" src="/assets/images/ill.png" alt="">
+
+            </div>
+            <div class="login">
+                <form class="form">
+                    <h2 class="login__title">Let's start!</h2>
+                    <div class="form__group">
+                        <label class="form__label" for="name">Your name<span class="asterix">&#42;</span></label><br>
+                        <input type="text" class="form__control" id="name" required/>
+                    </div>
+                    <a class="form__link" href="/game.html">
+                        <button class="form__button" type="button" onclick="href='game.html'">Create room</button>
+                    </a>
+                    <div class="form__break">
+                        <p class="form__break-text">or</p>
+                    </div>
+
+                    <div class="form__join">
+                        <div class="form__join-input">
+                            <label class="form__join-input-label" for="join">Join the room</label><br>
+                            <input type="text" class="form__join-input-control" id="join"/>
+                        </div>
+                        <a class="form__join-link" href="#">
+                            <button class="form__join-button">Join</button>
+                        </a>
+                    </div>
+
+<!--                    <div class="form__group">-->
+<!--                        <label class="form__label" for="room">Join the room</label><br>-->
+<!--                        <input type="text" class="form__control" id="room" />-->
+<!--                    </div>-->
+                </form>
+            </div>
+            <div class="bottom">
+                <div class="bottom__copy">
+                    <p class="bottom__copy-text">© We made it, 2020</p>
+                </div>
+                <div class="bottom__nav">
+                    <a class="bottom__nav-item" href="/about.html">About</a>
+                    <a class="bottom__nav-item" href="#" target="_blank">How It Works</a>
+                    <a class="bottom__nav-item" href="/contacts.html">Contacts</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

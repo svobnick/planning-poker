@@ -1,0 +1,39 @@
+.contacts {
+  display: block;
+  align-self: center;
+
+  max-width: 100%;
+  width: 58%;
+
+  padding: 3rem;
+
+  @media screen and (max-width: 767px){
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 410px) {
+    padding: 3rem 1rem;
+  }
+
+  .contacts__title {
+    margin-bottom: 1rem;
+    @extend %h2;
+  }
+
+  .contacts__text {
+    @extend %contacts-text;
+  }
+  .contacts__link {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+
+    cursor: pointer;
+    color: $secondary-text;
+
+    &:hover {
+      border-bottom: 1px solid $secondary-text;
+    }
+  }
+}
