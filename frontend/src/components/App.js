@@ -1,6 +1,6 @@
 import React from 'react';
 import Room from "./Room";
-import Entry from "./Entry";
+import Start from "./Start";
 import {
     BrowserRouter as Router,
     Switch,
@@ -13,7 +13,7 @@ class App extends React.Component {
             <Router>
                 <div className="App">
                     <Switch>
-                        <Route exact path="/" component={Entry}/>
+                        <Route exact path="/" component={Start}/>
                         <Route exact path="/room" component={Room}/>
                     </Switch>
                 </div>
