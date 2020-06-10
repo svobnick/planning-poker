@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../styles/_container.css';
-import '../styles/_login.css';
+import '../styles/_form.css';
 import '../styles/_head.css';
 
 import Logo from '../images/ill.png';
@@ -17,9 +17,10 @@ class Container extends React.Component {
                     <h1 className="head__title">Planning Poker</h1>
                     <img className="head__image" src={Logo} alt="poker logo"/>
                 </div>
-                <div className="login">
+                <form className="form">
+
                     <CreateButton/>
-                </div>
+                </form>
             </div>
         );
     }
