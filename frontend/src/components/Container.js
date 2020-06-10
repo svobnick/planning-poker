@@ -5,8 +5,7 @@ import '../styles/_form.css';
 import '../styles/_head.css';
 
 import Logo from '../images/ill.png';
-
-import CreateButton from "./CreateButton";
+import Enter from "./Enter";
 
 
 class Container extends React.Component {
@@ -18,8 +17,8 @@ class Container extends React.Component {
                     <img className="head__image" src={Logo} alt="poker logo"/>
                 </div>
                 <form className="form">
-
-                    <CreateButton/>
+                    <h2 className="form__title">Let's start!</h2>
+                    <Enter></Enter>
                 </form>
             </div>
         );

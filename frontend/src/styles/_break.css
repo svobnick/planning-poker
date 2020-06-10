@@ -1,0 +1,14 @@
+.break {
+    display: block;
+    position: relative;
+
+    margin: 0.5rem 0;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+
+    text-align: center;
+
+    color: #c5cbff;
+}

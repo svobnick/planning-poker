@@ -1,0 +1,56 @@
+.field {
+    display: block;
+    position: relative;
+
+    margin-bottom: 0.25rem;
+}
+
+    .field__label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .field__control {
+        display: block;
+        position: relative;
+
+        width: 100%;
+        margin-top: 0.25rem;
+        padding: 0.5rem;
+
+        outline: none;
+
+        background: rgba(236, 238, 255, 0.5);
+        box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
+        border-radius: 8px;
+    }
+
+        .field__control:focus {
+             background: rgba(236, 238, 255, 0.5);
+             box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF,
+             4px 5px 10px #C2C8FC;
+
+             transition: all 0.375s;
+         }
+
+        .field__control:ffocus:invalid {
+            background: rgba(236, 238, 255, 0.5);
+            box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF,
+            4px 5px 10px rgba(255, 55, 95, 0.4);
+
+            transition: all 0.375s;
+        }
+
+        input[type="text"] {
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+
+            color: #444BE0;
+
+            padding-left: 1rem;
+
+            width: 100%;
+        }

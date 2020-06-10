@@ -8,9 +8,20 @@
     padding: 3rem 3rem 2rem;
 }
 
+.form__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+
+    margin-bottom: 2rem;
+}
+
 @media screen and (max-width: 1023px) {
     .form {
         padding: 2rem 3rem;
+    }
+    .form__title {
+        font-size: 1.5rem;
     }
 }
 
