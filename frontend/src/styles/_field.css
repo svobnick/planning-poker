@@ -2,12 +2,12 @@
     display: block;
     position: relative;
 
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
     .field__label {
         font-size: 0.875rem;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.2;
     }
 

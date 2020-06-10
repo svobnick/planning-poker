@@ -38,7 +38,7 @@ class Enter extends React.Component {
                     <div className="join__group">
                         <label className="join__group-label" htmlFor="join">Join the room</label>
                         <br/>
-                        <input type="text" className="join__group-control" id="join"/>
+                        <input type="text" className="join__group-control" id="join" placeholder="http://localhost:3000/"/>
                     </div>
 
                     <button className="button" type="button">

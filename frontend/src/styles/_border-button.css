@@ -1,6 +1,6 @@
 .border-button {
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.5;
 
     padding: 0.5rem 2rem;
@@ -18,10 +18,10 @@
 }
 
 .border-button:hover {
-     color: #FFFFFF;
-     text-shadow: 1px 1px 2px rgba(20,44,73,.31), -1px -1px 2px rgba(151,153,255,.9);
-     background: linear-gradient(74.08deg, #7E7BFF -7.64%, #464CE2 145.94%);
-     border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    background: linear-gradient(74.08deg, #7E7BFF -7.64%, #464CE2 145.94%);
+    border: 1px solid #FFFFFF;
+    transition: background 0.375s;
  }
 
 .border-button:active {

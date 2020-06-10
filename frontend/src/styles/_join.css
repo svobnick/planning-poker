@@ -17,7 +17,7 @@
 
         .join__group-label {
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1.2;
         }
 
@@ -43,6 +43,10 @@
                 4px 5px 10px #C2C8FC;
 
                 transition: all 0.375s;
+            }
+
+            .join__group-control::placeholder {
+                color: #C5CBFF;
             }
 
 @media screen and (max-width: 1023px){
