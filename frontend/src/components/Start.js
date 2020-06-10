@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/_start.css';
 
 import Container from "./Container";
 
@@ -6,9 +7,12 @@ import Container from "./Container";
 class Start extends React.Component {
     render() {
         return (
-            <Container>
+            <div className="start">
+                <Container>
 
-            </Container>
+                </Container>
+            </div>
+
         );
     }
 }
