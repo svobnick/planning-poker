@@ -15,8 +15,8 @@ class Enter extends React.Component {
                 <div className="field">
                     <label className="field__label" htmlFor="name">Your name
                         <span style={{color: "#585EE6", fontSize: "1.25rem", lineHeight: 1}}>
-                        *
-                    </span>
+                            *
+                        </span>
                     </label>
                     <br />
                     <input type="text" className="field__control" id="name" required />
