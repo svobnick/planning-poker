@@ -8,9 +8,7 @@ class Start extends React.Component {
     render() {
         return (
             <div className="start">
-                <Container>
-
-                </Container>
+                <Container> </Container>
             </div>
 
         );

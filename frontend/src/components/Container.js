@@ -1,6 +1,9 @@
 import React from 'react';
+
 import '../styles/_container.css';
 import '../styles/_login.css';
+import '../styles/_head.css';
+
 import Logo from '../images/ill.png';
 
 import CreateButton from "./CreateButton";
