@@ -3,7 +3,7 @@
   flex-flow: row wrap;
 
   width: 70%;
-  height: auto;
+  height: fit-content;
   margin: 0 auto;
 
   background-color: #ffffff;
