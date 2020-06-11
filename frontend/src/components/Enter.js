@@ -22,10 +22,10 @@ class Enter extends React.Component {
                     <input type="text" className="field__control" id="name" required />
                 </div>
 
-                <button className="border-button" type="button"
+                <button className="border-button" type="submit"
                         style={{
                             width: "100%",
-                            margin: "0.5rem 0"
+                            margin: "0.5rem 0",
                         }}>
                     Create room
                 </button>
@@ -41,7 +41,7 @@ class Enter extends React.Component {
                         <input type="text" className="join__group-control" id="join" placeholder="http://localhost:3000/"/>
                     </div>
 
-                    <button className="button" type="button">
+                    <button className="button" type="submit">
                         Join
                     </button>
 

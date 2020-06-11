@@ -6,9 +6,9 @@ class Nav extends React.Component {
     render() {
         return (
             <div className="nav">
-                <button className="nav__item">About</button>
-                <button className="nav__item">How It Works</button>
-                <button className="nav__item">Contacts</button>
+                <button className="nav__item" type="button">About</button>
+                <button className="nav__item" type="button">How It Works</button>
+                <button className="nav__item" type="button">Contacts</button>
             </div>
         );
     }
