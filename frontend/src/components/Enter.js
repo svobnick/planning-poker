@@ -18,11 +18,14 @@ class Enter extends React.Component {
                             *
                         </span>
                     </label>
-                    <br />
-                    <input type="text" className="field__control" id="name" required />
+                    <br/>
+                    <input
+                    onChange={this._validate().bind(this)}
+                        type="text" className="field__control" id="name" required/>
                 </div>
 
-                <button className="border-button" type="submit"
+                <button className="border-button submit" type="submit"
+                        onClick={this._validate_onClick().bind(this)}
                         style={{
                             width: "100%",
                             margin: "0.5rem 0",
@@ -38,16 +41,35 @@ class Enter extends React.Component {
                     <div className="join__group">
                         <label className="join__group-label" htmlFor="join">Join the room</label>
                         <br/>
-                        <input type="text" className="join__group-control" id="join" placeholder="http://localhost:3000/"/>
+                        <input type="text" className="join__group-control" id="join"
+                               placeholder="http://localhost:3000/"/>
                     </div>
 
-                    <button className="button" type="submit">
+                    <button className="button submit" type="submit">
                         Join
                     </button>
 
                 </div>
             </div>
         );
+    }
+
+    _validate() {
+        return function () {
+            if (document.getElementsByClassName("field__control")[0].value !== "") {
+                let field = document.getElementById('name');
+                field.classList.remove('error');
+            }
+        }
+    }
+
+    _validate_onClick() {
+        return function () {
+            if (document.getElementsByClassName("field__control")[0].value === "") {
+                let field = document.getElementById('name');
+                field.classList.add('error');
+            }
+        }
     }
 }
 

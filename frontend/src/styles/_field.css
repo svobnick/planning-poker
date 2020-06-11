@@ -34,12 +34,8 @@
              transition: all 0.375s;
          }
 
-        .field__control:ffocus:invalid {
-            background: rgba(236, 238, 255, 0.5);
-            box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF,
-            4px 5px 10px rgba(255, 55, 95, 0.4);
-
-            transition: all 0.375s;
+        .error:focus {
+            border: 0.5px solid rgb(255, 55, 95);
         }
 
         input[type="text"] {
