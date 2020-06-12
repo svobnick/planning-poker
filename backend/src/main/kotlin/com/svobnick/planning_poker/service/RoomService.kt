@@ -4,6 +4,7 @@ import com.svobnick.planning_poker.dao.RoomDao
 import com.svobnick.planning_poker.model.request.CreateRoomRequest
 import com.svobnick.planning_poker.model.request.JoinRoomRequest
 import com.svobnick.planning_poker.model.Room
+import com.svobnick.planning_poker.model.Vote
 import com.svobnick.planning_poker.model.response.CreateRoomResponse
 import com.svobnick.planning_poker.model.response.JoinRoomResponse
 import org.springframework.beans.factory.annotation.Autowired
@@ -34,7 +35,7 @@ class RoomService {
         }
         val userId = UUID.randomUUID().toString()
         val task = taskService.getTask(room.task!!.id!!)
-        task.name2votes[userId] = Pair(request.username, null)
+        task.name2votes[userId] = Vote(request.username, null)
         taskService.save(task)
         return JoinRoomResponse(userId, task)
     }

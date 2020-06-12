@@ -28,6 +28,13 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.11.+"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.3.0.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.13'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 compileKotlin {
