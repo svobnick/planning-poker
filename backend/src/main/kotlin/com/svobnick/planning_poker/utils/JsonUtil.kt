@@ -8,5 +8,9 @@ object JsonUtil {
     fun <T> toClassFromJson(json: String, clazz: Class<T>) : T {
         return objectMapper.readValue(json, clazz)
     }
+
+    fun toJson(obj: Any): String {
+        return objectMapper.writeValueAsString(obj)
+    }
 }
 
