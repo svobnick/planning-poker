@@ -3,6 +3,7 @@ package com.svobnick.planning_poker.service
 import com.svobnick.planning_poker.dao.TaskDao
 import com.svobnick.planning_poker.model.Task
 import com.svobnick.planning_poker.model.Vote
+import com.svobnick.planning_poker.model.request.ChangeTaskNameRequest
 import com.svobnick.planning_poker.model.request.VoteRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -29,10 +30,10 @@ class TaskService {
         taskDao.save(task)
     }
 
-    fun updateTaskName(taskId: String, taskName: String): String {
-        var task = taskDao.findById(taskId)
-            .orElseThrow { throw IllegalArgumentException("There's no task with taskId: $taskId") }
-        task.name = taskName
+    fun updateTaskName(request: ChangeTaskNameRequest): String {
+        var task = taskDao.findById(request.taskId)
+            .orElseThrow { throw IllegalArgumentException("There's no task with taskId: ${request.taskId}") }
+        task.name = request.taskName
         task = taskDao.save(task)
         return task.name
     }

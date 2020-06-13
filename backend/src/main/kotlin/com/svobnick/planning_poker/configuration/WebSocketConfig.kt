@@ -11,20 +11,12 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 open class WebSocketConfig : WebSocketMessageBrokerConfigurer {
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint(
-            "/task"
-        )
-            .setAllowedOrigins("*") // todo replace with localhost on prod
-            .withSockJS()
-        super.registerStompEndpoints(registry)
+        registry.addEndpoint("/poker")
+            .setAllowedOrigins("*")
     }
 
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {
-        registry.enableSimpleBroker(
-            "/task/task-name",
-            "/task/votes"
-        )
-        registry.setApplicationDestinationPrefixes("/task")
-        super.configureMessageBroker(registry)
+        registry.enableSimpleBroker("/task")
+        registry.setApplicationDestinationPrefixes("/app")
     }
 }
