@@ -4,7 +4,9 @@ import com.svobnick.planning_poker.dao.TaskDao
 import com.svobnick.planning_poker.model.Task
 import com.svobnick.planning_poker.model.Vote
 import com.svobnick.planning_poker.model.request.ChangeTaskNameRequest
+import com.svobnick.planning_poker.model.request.StartNewTaskRequest
 import com.svobnick.planning_poker.model.request.VoteRequest
+import com.svobnick.planning_poker.model.response.TaskVotesResultResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.lang.IllegalArgumentException
@@ -45,6 +47,18 @@ class TaskService {
         task.name2votes.putIfAbsent(request.userId, Vote(request.userName, request.vote))
         task = taskDao.save(task)
         return task.name2votes
+    }
+
+    fun isVoteOver(votes: Collection<Vote>): Boolean {
+        return votes.all { it.vote != null }
+    }
+
+    fun computeResult(votes: MutableMap<String, Vote>): TaskVotesResultResponse {
+        TODO("Not yet implemented")
+    }
+
+    fun startNewTaskRequest(request: StartNewTaskRequest): Task {
+        TODO("Not yet implemented")
     }
 
 
