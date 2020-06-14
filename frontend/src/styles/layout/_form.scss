@@ -1,3 +1,5 @@
+@import '../helpers/_snippets.scss';
+
 .form {
   display: block;
   align-self: center;
@@ -21,7 +23,7 @@
   }
 
   .form__title {
-    //@extend %h2;
+    @extend %h2;
     margin: 2rem 0;
 
     @media screen and (max-width: 767px) {

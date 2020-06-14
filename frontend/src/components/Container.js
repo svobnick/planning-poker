@@ -1,8 +1,5 @@
 import React from 'react';
 
-import '../styles/helpers/_mixins.scss'
-import '../styles/helpers/_snippets.scss'
-
 import '../styles/layout/_container.scss';
 import '../styles/layout/_form.scss';
 import '../styles/layout/_head.scss';

@@ -1,9 +1,11 @@
+@import '../helpers/_mixins.scss';
+
 .enter {
   display: block;
   position: relative;
 
   .enter__border-button {
-    //@include border-button();
+    @include border-button();
   }
 
   .enter__break {

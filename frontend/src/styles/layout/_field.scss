@@ -1,3 +1,5 @@
+@import '../helpers/_snippets.scss';
+
 .field {
   display: block;
   position: relative;
@@ -5,7 +7,7 @@
   margin-bottom: 0.5rem;
 
   .field__label {
-    //@extend %label;
+    @extend %label;
   }
 
   .field__control {

@@ -1,3 +1,5 @@
+@import '../helpers/_snippets.scss';
+
 .head {
   display: flex;
   position: relative;
@@ -22,7 +24,7 @@
   }
 
   .head__title {
-    //@extend %h1;
+    @extend %h1;
 
     @media screen and (max-width: 767px) {
       text-align: center;
