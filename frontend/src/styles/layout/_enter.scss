@@ -1,4 +1,12 @@
-.break {
+.enter {
+  display: block;
+  position: relative;
+
+  .enter__border-button {
+    //@include border-button();
+  }
+
+  .enter__break {
     display: block;
     position: relative;
 
@@ -11,4 +19,5 @@
     text-align: center;
 
     color: #c5cbff;
+  }
 }

@@ -1,0 +1,78 @@
+.join {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  width: 100%;
+
+  @media screen and (max-width: 1023px){
+    flex-flow: row wrap;
+  }
+
+  .join__group {
+    display: block;
+    position: relative;
+    flex: auto;
+
+    .join__group-label {
+      //@extend %label;
+    }
+
+    .join__group-control {
+      display: block;
+      position: relative;
+
+      width: 100%;
+      margin-top: 0.25rem;
+      margin-right: 0.5rem;
+      padding: 0.5rem;
+
+      outline: none;
+
+      background: rgba(236, 238, 255, 0.5);
+      box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
+      border-radius: 8px;
+
+      &:focus {
+        background: rgba(236, 238, 255, 0.5);
+        box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF,
+        4px 5px 10px #C2C8FC;
+
+        transition: all 0.375s;
+      }
+
+      &::placeholder {
+        color: #C5CBFF;
+      }
+
+      @media screen and (max-width: 1023px){
+        width: 100%;
+      }
+    }
+
+    input[type="text"] {
+      font-family: Rubik, sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+
+      color: #444BE0;
+
+      padding-left: 1rem;
+
+      width: 100%;
+    }
+  }
+
+  .join__button {
+    margin: 0 0 0 0.5rem;
+    //@include button();
+
+    @media screen and (max-width: 1023px){
+      margin: 0.5rem 0;
+    }
+  }
+}

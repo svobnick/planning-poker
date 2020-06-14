@@ -1,0 +1,31 @@
+.form {
+  display: block;
+  align-self: center;
+
+  max-width: 100%;
+  width: 58%;
+
+  padding: 3rem 3rem 2rem;
+
+  @media screen and (max-width: 1023px) {
+    padding: 2rem 3rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 410px) {
+    padding: 2rem 1rem;
+  }
+
+  .form__title {
+    //@extend %h2;
+    margin: 2rem 0;
+
+    @media screen and (max-width: 767px) {
+      margin: 1rem 0 2rem;
+    }
+  }
+}

@@ -1,8 +1,12 @@
 import React from 'react';
 
-import '../styles/_container.css';
-import '../styles/_form.css';
-import '../styles/_head.css';
+import '../styles/helpers/_mixins.scss'
+import '../styles/helpers/_snippets.scss'
+
+import '../styles/layout/_container.scss';
+import '../styles/layout/_form.scss';
+import '../styles/layout/_head.scss';
+
 
 import Logo from '../images/ill.png';
 

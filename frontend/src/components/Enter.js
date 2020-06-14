@@ -2,18 +2,16 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {postRequest} from '../utils/requests'
 
-import '../styles/_border-button.css';
-import '../styles/_field.css';
-import '../styles/_border-button.css';
-import '../styles/_break.css';
-import '../styles/_join.css';
-import '../styles/_button.css';
+import '../styles/layout/_enter.scss';
+import '../styles/layout/_field.scss';
+import '../styles/layout/_error.scss';
+import '../styles/layout/_join.scss';
 
 class Enter extends React.Component {
 
     render() {
         return (
-            <div className="entry">
+            <div className="enter">
 
                 <div className="field">
                     <label className="field__label" htmlFor="name">Your name
@@ -27,7 +25,7 @@ class Enter extends React.Component {
                         type="text" className="field__control" id="name" required/>
                 </div>
 
-                <button className="border-button submit" type="submit"
+                <button className="enter__border-button submit" type="submit"
                         onClick={this.onCreateClick().bind(this)}
                         style={{
                             width: "100%",
@@ -36,7 +34,7 @@ class Enter extends React.Component {
                     Create room
                 </button>
 
-                <div className="break">
+                <div className="enter__break">
                     <p>or</p>
                 </div>
 
@@ -50,7 +48,7 @@ class Enter extends React.Component {
                             placeholder="http://localhost:3000/"/>
                     </div>
 
-                    <button className="button submit" type="submit"
+                    <button className="join__button submit" type="submit"
                             onClick={this.onJoinClick().bind(this)}>
                         Join
                     </button>

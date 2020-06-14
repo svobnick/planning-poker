@@ -2,17 +2,16 @@
   display: flex;
   flex-flow: row wrap;
 
-  width: 70%;
+  width: 47rem;
+
   height: fit-content;
   margin: 0 auto;
 
   background-color: #ffffff;
   box-shadow: 10px 10px 20px #A6ABBD, -10px -10px 20px #FFFFFF;
   border-radius: 8px;
-}
 
-@media screen and (max-width: 1023px) {
-  .container {
-    width: 90%;
+  @media screen and (max-width: 767px) {
+    width: 100%;
   }
 }

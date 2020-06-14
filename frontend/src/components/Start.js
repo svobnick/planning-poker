@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/_start.css';
+import '../styles/layout/_start.scss';
 
 import Container from "./Container";
 

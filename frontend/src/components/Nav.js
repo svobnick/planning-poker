@@ -1,6 +1,7 @@
 import React from 'react';
 
-import '../styles/_nav.css';
+import '../styles/helpers/_mixins.scss';
+import '../styles/layout/_nav.scss';
 
 class Nav extends React.Component {
     render() {
