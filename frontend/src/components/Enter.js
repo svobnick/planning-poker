@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import {postRequest} from '../utils/requests'
 
 import '../styles/_border-button.css';
@@ -9,6 +10,7 @@ import '../styles/_join.css';
 import '../styles/_button.css';
 
 class Enter extends React.Component {
+
     render() {
         return (
             <div className="entry">
@@ -87,6 +89,7 @@ class Enter extends React.Component {
                 postRequest("http://localhost:8090/create", {username: name})
                     .then(response => {
                         console.log(response)
+                        this.props.history.push("room/" + response.roomId)
                     })
             }
         }
@@ -109,10 +112,11 @@ class Enter extends React.Component {
                 postRequest("http://localhost:8090/join", {username: name, roomId: roomId})
                     .then(response => {
                         console.log(response)
+                        this.props.history.push("room/" + response.task.roomId)
                     })
             }
         }
     }
 }
 
-export default Enter;
+export default withRouter(Enter);

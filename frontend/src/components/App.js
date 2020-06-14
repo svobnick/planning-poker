@@ -32,7 +32,7 @@ class App extends React.Component {
                 <div className="App">
                     <Switch>
                         <Route exact path="/" component={Start}/>
-                        <Route exact path="/room" component={Room}/>
+                        <Route exact path="/room/:roomId" component={Room}/>
                     </Switch>
                 </div>
             </Router>
