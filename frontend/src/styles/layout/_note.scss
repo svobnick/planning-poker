@@ -1,0 +1,44 @@
+@import '../helpers/_snippets.scss';
+
+.note {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  @media screen and (max-width: 767px) {
+    padding: 1rem 0;
+  }
+
+  .note__title {
+    display: block;
+    position: relative;
+
+    width: 20%;
+    max-width: 100%;
+
+    @extend %note-title;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .note__content {
+    display: block;
+    position: relative;
+
+    width: calc(80% - 1rem);
+    max-width: 100%;
+
+    @extend %note-text;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
