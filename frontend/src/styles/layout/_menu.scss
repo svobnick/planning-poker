@@ -1,0 +1,14 @@
+@import '../helpers/_snippets.scss';
+
+.menu {
+  display: block;
+  position: relative;
+  width: 100%;
+
+  padding: 1rem 0 0.5rem;
+
+  .menu__logo {
+    @extend %logo;
+    cursor: pointer;
+  }
+}
