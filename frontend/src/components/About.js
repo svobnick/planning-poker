@@ -16,7 +16,7 @@ class About extends React.Component {
                     </div>
                     <div className="about__text">
                         <div className="note">
-                            <h3 className="note__title">🔎 Summary</h3>
+                            <h3 className="note__title"><span role="img" aria-label="magnifier">🔎</span> Summary</h3>
                             <p className="note__content">
                                 Planning Poker is estimating technique designed as digital card game.
                                 It helps development teams set sprint goals and estimate time through collaborative planning.
@@ -25,7 +25,7 @@ class About extends React.Component {
                         </div>
 
                         <div className="note">
-                            <h3 className="note__title">🎲 Rules</h3>
+                            <h3 className="note__title"><span role="img" aria-label="dice">🎲</span> Rules</h3>
                             <p className="note__content">
                                 The session starts immediately after team leader describes a feature that needs to be developed.
                                 Every participant makes his decision about time needed to complete a task.
@@ -37,7 +37,7 @@ class About extends React.Component {
                         </div>
 
                         <div className="note">
-                            <h3 className="note__title">✌️ Fibonacci</h3>
+                            <h3 className="note__title"><span role="img" aria-label="victory">✌</span>️ Fibonacci</h3>
                             <p className="note__content">
                                 You can use any sequence you like to estimate a user story: linear, hours, days and even T-shirt sizes.
                                 But we recommend you classic Fibonacci sequence:
@@ -47,7 +47,7 @@ class About extends React.Component {
                         </div>
 
                         <div className="note">
-                            <h3 className="note__title">⏱ Time</h3>
+                            <h3 className="note__title"><span role="img" aria-label="time">⏱</span> Time</h3>
                             <p className="note__content">
                                 Use a timer to limit discussion and make decision faster.
                                 When there is a tie in the voting between two cards which are consecutive, just pick the larger size and move on.
@@ -55,7 +55,7 @@ class About extends React.Component {
                         </div>
 
                         <div className="note">
-                            <h3 className="note__title">🏆 Benefits</h3>
+                            <h3 className="note__title"><span role="img" aria-label="win">🏆</span> Benefits</h3>
                             <p className="note__content">
                                 The estimates based on group discussions are more accurate than the individual estimates.
                                 Also, lively dialog between coworkers facilitates better understanding tasks and common strategy.

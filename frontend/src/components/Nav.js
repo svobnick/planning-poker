@@ -8,16 +8,22 @@ class Nav extends React.Component {
     render() {
         return (
             <div className="nav">
-                <button className="nav__item" type="button" onClick={this.onLinkClick().bind(this)}>About</button>
-                <button className="nav__item" type="button">How It Works</button>
+                <button className="nav__item" type="button" onClick={this.onLinkClickAbout().bind(this)}>About</button>
+                <button className="nav__item" type="button" onClick={this.onLinkClickRules().bind(this)}>How It Works</button>
                 <button className="nav__item" type="button">Contacts</button>
             </div>
         );
     }
 
-    onLinkClick() {
+    onLinkClickAbout() {
         return function (e) {
             this.props.history.push("/about")
+        }
+    }
+
+    onLinkClickRules() {
+        return function (e) {
+            this.props.history.push("/rules")
         }
     }
 }
