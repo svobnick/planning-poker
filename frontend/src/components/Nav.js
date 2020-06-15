@@ -10,7 +10,7 @@ class Nav extends React.Component {
             <div className="nav">
                 <button className="nav__item" type="button" onClick={this.onLinkClickAbout().bind(this)}>About</button>
                 <button className="nav__item" type="button" onClick={this.onLinkClickRules().bind(this)}>How It Works</button>
-                <button className="nav__item" type="button">Contacts</button>
+                <button className="nav__item" type="button" onClick={this.onLinkClickContacts().bind(this)}>Contacts</button>
             </div>
         );
     }
@@ -24,6 +24,12 @@ class Nav extends React.Component {
     onLinkClickRules() {
         return function (e) {
             this.props.history.push("/rules")
+        }
+    }
+
+    onLinkClickContacts() {
+        return function (e) {
+            this.props.history.push("/contacts")
         }
     }
 }

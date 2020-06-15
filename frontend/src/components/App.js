@@ -4,6 +4,8 @@ import Room from "./Room";
 import Start from "./Start";
 import About from "./About";
 import Rules from "./Rules";
+import Contacts from "./Contacts";
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -36,6 +38,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Start}/>
                         <Route exact path="/about" component={About}/>
                         <Route exact path="/rules" component={Rules}/>
+                        <Route exact path="/contacts" component={Contacts}/>
                         <Route exact path="/room/:roomId" component={Room}/>
                     </Switch>
                 </div>
