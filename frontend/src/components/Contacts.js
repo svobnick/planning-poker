@@ -12,7 +12,7 @@ class Contacts extends React.Component {
     render() {
         return (
             <div className="start">
-                <div className="container">
+                <div className="container" style={{backgroundColor:"#ECEEFF"}}>
                     <div className="head">
                         <h1 className="head__title">Planning Poker</h1>
                         <img className="head__image" src={Logo} alt="poker logo"/>
