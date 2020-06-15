@@ -1,0 +1,33 @@
+@import '../helpers/_snippets.scss';
+
+.story {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+
+  @media screen and (max-width: 767px){
+    width: 100%;
+  }
+
+  .story__field {
+    display: block;
+    position: relative;
+
+    outline: none;
+
+    width: 100%;
+    margin-top: 0.25rem;
+
+    padding: 1rem 0.5rem;
+
+    resize: none;
+
+    background: rgba(236, 238, 255, 0.5);
+    box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
+    border-radius: 8px;
+
+    @extend %textarea;
+  }
+}

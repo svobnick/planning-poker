@@ -75,3 +75,22 @@
     font-size: 1.25rem;
   }
 }
+
+%textarea {
+  font-family: Rubik, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+
+  color: #585EE6;
+
+  @media screen and (max-width: 1023px){
+    font-size: 1.15rem;
+  }
+
+  @media screen and (max-width: 767px){
+    font-size: 1rem;
+  }
+
+}
