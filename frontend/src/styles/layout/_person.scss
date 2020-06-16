@@ -1,0 +1,35 @@
+@import "../helpers/snippets.scss";
+//@import '../images/check-item.svg';
+
+.person {
+  display: block;
+  position: relative;
+
+  background-color: #ECEEFF;
+
+  padding: 0.25rem 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  border-radius: 8px;
+  box-shadow: 2px 4px 10px rgba(151, 153, 255, 0.3);
+
+  cursor: default;
+
+  @extend %person;
+}
+
+.person--voter {
+  &:after {
+    content: "";
+    display: inline-block;
+    background: url('../../images/check-item.svg') no-repeat;
+    width:  18px;
+    height: 18px;
+
+    overflow: hidden;
+    vertical-align: top;
+
+    margin-left: 0.25rem;
+  }
+}
