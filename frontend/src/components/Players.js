@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/layout/_players.scss';
 
 import Person from './Person';
+import Invite from './Invite';
 
 class Players extends React.Component {
     render() {
@@ -18,6 +19,8 @@ class Players extends React.Component {
                     <Person />
                     <Person />
                 </div>
+
+                <Invite/>
 
             </div>
         );

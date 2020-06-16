@@ -1,0 +1,73 @@
+@import "../helpers/snippets.scss";
+@import "../helpers/mixins.scss";
+
+.invite {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin: 2rem 0 0;
+
+  @media screen and (max-width: 1023px){
+    flex-flow: row wrap;
+  }
+
+  .invite__field {
+    display: block;
+    flex: auto;
+    position: relative;
+
+    @media screen and (max-width: 1023px){
+      width: 100%;
+    }
+
+    input[value] {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.5;
+      text-transform: none;
+
+      @media screen and (max-width: 1023px){
+        font-size: 0.875rem;
+      }
+    }
+
+    .invite__field-label {
+      @extend %label;
+    }
+
+    .invite__field-control {
+      display: flex;
+      position: relative;
+
+      outline: none;
+      width: 100%;
+
+      margin-top: 0.25rem;
+      padding: 0.5rem;
+
+      background: rgba(236, 238, 255, 0.5);
+      box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
+      border-radius: 8px;
+
+      @media screen and (max-width: 1023px){
+        width: 100%;
+      }
+    }
+  }
+
+  .invite__button {
+    @include button();
+    margin-left: 1rem;
+
+    @media screen and (max-width: 1023px){
+      margin: 0.5rem 0;
+    }
+  }
+
+}

@@ -12,7 +12,7 @@ import '../styles/layout/_content.scss';
 class Room extends React.Component {
     render() {
         const {params} = this.props.match;
-        const {roomId} = params
+        const {roomId} = params;
         return (
             <div className="poker">
                 <Menu />
