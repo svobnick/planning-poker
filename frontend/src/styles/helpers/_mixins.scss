@@ -92,3 +92,38 @@
     border-radius: 4px;
   }
 }
+
+@mixin light-button {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
+  padding: 0.3125rem 1rem;
+
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid #C5CBFF;
+
+  outline: none;
+  cursor: pointer;
+
+  color: #C5CBFF;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    color: #444BE0;
+    border: 1px solid #444BE0;
+    transition: all 0.375s;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media screen and (max-width: 767px){
+    padding: 0.185rem 0.5rem;
+    border-radius: 4px;
+  }
+}

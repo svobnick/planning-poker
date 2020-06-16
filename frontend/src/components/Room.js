@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Menu from './Menu';
-import Story from './Story'
+import Story from './Story';
+import Timer from './Timer';
 
 import '../styles/layout/_poker.scss';
 import '../styles/layout/_title.scss';
@@ -16,6 +17,7 @@ class Room extends React.Component {
 
                 <div className="title">
                     <Story />
+                    <Timer />
                 </div>
 
                 <div className="roomId">RoomId: ({roomId})</div>
