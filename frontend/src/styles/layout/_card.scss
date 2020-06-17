@@ -7,6 +7,7 @@
   justify-content: center;
 
   margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
 
   @include card();
 
@@ -20,6 +21,25 @@
     color: transparent;
     -webkit-background-clip: text;
     background-image: linear-gradient(180deg, #444BE0 0%, #6123E5 105.18%);
+  }
+}
+
+.vote-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+
+  @include vote-card();
+
+  .vote-number {
+    @extend %number;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to top left,#f50057,#9b51e0);
   }
 }
 

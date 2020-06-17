@@ -10,6 +10,7 @@ import '../styles/layout/_poker.scss';
 import '../styles/layout/_title.scss';
 import '../styles/layout/_content.scss';
 import '../styles/layout/_poll.scss';
+import '../styles/layout/_unit.scss';
 
 import Nav from "./Nav";
 
@@ -30,8 +31,10 @@ class Room extends React.Component {
                     <div className="poll">
                         <Card/>
                     </div>
-                    <Players/>
-                    <Nav/>
+                    <div className="unit">
+                        <Players/>
+                        <Nav/>
+                    </div>
                 </div>
 
                 <div className="roomId">RoomId: ({roomId})</div>

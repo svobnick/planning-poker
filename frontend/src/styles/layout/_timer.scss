@@ -6,6 +6,9 @@
   display: flex;
   flex-flow: row nowrap;
 
+  width: 40%;
+  max-width: 100%;
+
   margin: 0.5rem 0 0;
 
   .timer__counter {
@@ -14,6 +17,7 @@
 
   .timer__button {
     margin: 0 1rem;
+    align-self: baseline;
     @include light-button();
   }
 }
