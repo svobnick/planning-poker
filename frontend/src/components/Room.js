@@ -4,10 +4,14 @@ import Menu from './Menu';
 import Story from './Story';
 import Timer from './Timer';
 import Players from './Players';
+import Card from './Card';
 
 import '../styles/layout/_poker.scss';
 import '../styles/layout/_title.scss';
 import '../styles/layout/_content.scss';
+import '../styles/layout/_poll.scss';
+
+import Nav from "./Nav";
 
 class Room extends React.Component {
     render() {
@@ -23,7 +27,11 @@ class Room extends React.Component {
                 </div>
 
                 <div className="content">
+                    <div className="poll">
+                        <Card/>
+                    </div>
                     <Players/>
+                    <Nav/>
                 </div>
 
                 <div className="roomId">RoomId: ({roomId})</div>

@@ -31,10 +31,6 @@
 
       @include card();
 
-      &:empty {
-        visibility: hidden;
-      }
-
       .card__item-fib {
         @extend %number;
 

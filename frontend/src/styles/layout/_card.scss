@@ -1,0 +1,29 @@
+@import "../helpers/mixins.scss";
+@import "../helpers/snippets.scss";
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.5rem;
+
+  @include card();
+
+  &:empty {
+    visibility: hidden;
+  }
+
+  .card__number {
+    @extend %number;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(180deg, #444BE0 0%, #6123E5 105.18%);
+  }
+}
+
+.card__holder {
+  display: flex;
+  flex-flow: row wrap;
+}

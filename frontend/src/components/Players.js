@@ -21,7 +21,6 @@ class Players extends React.Component {
                 </div>
 
                 <Invite/>
-
             </div>
         );
     }

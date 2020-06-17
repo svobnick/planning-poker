@@ -27,14 +27,11 @@
     }
 
     input[value] {
+      font-family: Rubik, sans-serif;
       font-size: 0.875rem;
       font-weight: 300;
       line-height: 1.5;
       text-transform: none;
-
-      @media screen and (max-width: 1023px){
-        font-size: 0.875rem;
-      }
     }
 
     .invite__field-label {
