@@ -16,8 +16,8 @@ import Nav from "./Nav";
 
 class Room extends React.Component {
     render() {
-        const {params} = this.props.match;
-        const {roomId} = params;
+        // const {params} = this.props.match;
+        // const {roomId} = params;
         return (
             <div className="poker">
                 <Menu />
@@ -37,7 +37,7 @@ class Room extends React.Component {
                     </div>
                 </div>
 
-                <div className="roomId">RoomId: ({roomId})</div>
+                {/*<div className="roomId">RoomId: ({roomId})</div>*/}
             </div>
         );
     }

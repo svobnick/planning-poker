@@ -6,10 +6,15 @@
   display: flex;
   flex-flow: row nowrap;
 
-  width: 40%;
+  width: 45%;
   max-width: 100%;
 
   margin: 0.5rem 0 0;
+
+  @media screen and (max-width: 767px){
+    width: 100%;
+    margin: 1rem 0;
+  }
 
   .timer__counter {
     @extend %timer;

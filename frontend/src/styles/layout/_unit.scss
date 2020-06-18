@@ -4,4 +4,8 @@
 
   width: 45%;
   max-width: 100%;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 }

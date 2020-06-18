@@ -29,5 +29,9 @@
     border-radius: 8px;
 
     @extend %textarea;
+
+    &::placeholder {
+      color: #C2C8FC;
+    }
   }
 }

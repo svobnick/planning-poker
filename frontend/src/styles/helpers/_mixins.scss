@@ -146,14 +146,25 @@
   &:active {
     transform: scale(0.98);
   }
+
+  @media screen and (max-width: 1023px){
+    width: 5rem;
+    min-height: 7rem;
+  }
+
+  @media screen and (max-width: 410px){
+    width: 4rem;
+    min-height: 5rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    width: 100%;
+  }
 }
 
 @mixin vote-card {
   width: 5.4rem;
   min-height: 7.2rem;
-  margin-right: 1.5rem;
-
-  flex: 0 1 auto;
 
   background: rgba(236, 238, 255, 0.5);
   box-shadow: inset 2px 2px 5px rgba(136, 165, 191, 0.38), inset -3px -3px 7px #FFFFFF;
@@ -161,4 +172,20 @@
   border-radius: 16px;
 
   border: none;
+
+  @media screen and (max-width: 1023px){
+    width: 5rem;
+    min-height: 7rem;
+  }
+
+  @media screen and (max-width: 410px){
+    width: 4rem;
+    min-height: 5rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    width: 100%;
+  }
+
+
 }
