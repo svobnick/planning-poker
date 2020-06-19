@@ -1,0 +1,47 @@
+@import "../helpers/snippets.scss";
+@import "../helpers/mixins.scss";
+
+.stat {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+
+  width: 100%;
+
+  padding: 2rem 1.5rem;
+
+  background: linear-gradient(312.52deg, rgba(236, 238, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ECEEFF;
+  box-shadow: 10px 10px 20px #A6ABBD, -10px -10px 20px #FAFBFF;
+  border-radius: 8px;
+
+  @media screen and (max-width: 1023px){
+    padding: 2rem 1rem;
+  }
+
+  .stat__title {
+    @extend %h2;
+  }
+
+  .stat__data {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    position: relative;
+    margin: 1rem 0;
+
+    & > * {
+      width: calc(50% - 0.5rem);
+
+      @media screen and (max-width: 410px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .stat__button {
+    @include button();
+    margin: 0 auto;
+  }
+
+}

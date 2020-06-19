@@ -5,6 +5,8 @@ import Task from './Task';
 import Timer from './Timer';
 import Players from './Players';
 import Card from './Card';
+import Nav from "./Nav";
+import Stat from "./Stat";
 
 import '../styles/layout/_poker.scss';
 import '../styles/layout/_title.scss';
