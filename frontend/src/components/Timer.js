@@ -3,17 +3,26 @@ import React from 'react';
 import '../styles/layout/_timer.scss';
 
 class Timer extends React.Component {
-    state = {
-        timerOn: false,
-        timerStart: 0,
-        timerTime: 0
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            timerOn: false,
+            timerStart: 0,
+            timerTime: 0
+        };
+
+        this.startTimer()
+
+        this.finishVote = this.finishVote.bind(this)
+    }
+
 
     startTimer() {
         this.setState({
             timerOn: true,
-            timerTime: this.state.timerTime,
-            timerStart: Date.now() - this.state.timerTime
+            timerTime: 0,
+            timerStart: Date.now()
         });
         this.timer = setInterval(() => {
             this.setState({
@@ -22,8 +31,13 @@ class Timer extends React.Component {
         }, 10);
     };
 
-    stopTimer = () => {
-        this.setState({ timerOn: false });
+    finishVote() {
+        // todo send to server finish event
+        this.setState({
+            timerOn: false,
+            timerTime: 0,
+            timerStart: undefined
+        });
         clearInterval(this.timer);
     };
 
@@ -35,12 +49,7 @@ class Timer extends React.Component {
         return (
             <div className="timer">
                 <div className="timer__counter">{minutes}:{seconds}</div>
-                {this.state.timerOn === false && this.state.timerTime === 0 && (
-                    <button className="timer__button" onClick={this.startTimer.bind(this)}>Start</button>
-                )}
-                {this.state.timerOn === true && (
-                    <button className="timer__button" onClick={this.stopTimer.bind(this)}>Stop</button>
-                )}
+                <button className="timer__button" onClick={this.finishVote}>Stop</button>
             </div>
         );
     }
