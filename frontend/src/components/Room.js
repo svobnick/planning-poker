@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Menu from './Menu';
-import Story from './Story';
+import Task from './Task';
 import Timer from './Timer';
 import Players from './Players';
 import Card from './Card';
@@ -14,12 +14,14 @@ import '../styles/layout/_unit.scss';
 
 import Nav from "./Nav";
 import {getRoomId} from "../utils/url-utils"
+import {Client, connect_callback, error_callback} from "../utils/websocket";
 
 export const RoomContext = React.createContext({
     room: {},
     toggleRoom: () => {
     }
 })
+
 
 class Room extends React.Component {
 
@@ -37,6 +39,10 @@ class Room extends React.Component {
         }
     }
 
+    componentDidMount() {
+        Client.connect({}, connect_callback, error_callback);
+    }
+
     render() {
         return (
             <RoomContext.Provider value={this.state}>
@@ -44,7 +50,7 @@ class Room extends React.Component {
                     <Menu/>
 
                     <div className="title">
-                        <Story/>
+                        <Task/>
                         <Timer/>
                     </div>
 
