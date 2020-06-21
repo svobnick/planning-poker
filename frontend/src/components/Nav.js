@@ -5,21 +5,32 @@ import '../styles/helpers/_mixins.scss';
 import '../styles/layout/_nav.scss';
 
 class Nav extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.onLinkClick = this.onLinkClick.bind(this)
+    }
+
+    onLinkClick(path) {
+        this.props.history.push(path)
+    }
+
     render() {
         return (
             <div className="nav">
-                <button className="nav__item" type="button" onClick={this.onLinkClick('/about').bind(this)}>About</button>
-                <button className="nav__item" type="button" onClick={this.onLinkClick("/rules").bind(this)}>How It Works</button>
-                <button className="nav__item" type="button" onClick={this.onLinkClick("/contacts").bind(this)}>Contacts</button>
+                <button className="nav__item" type="button"
+                        onClick={() => this.onLinkClick('/about')}>About
+                </button>
+                <button className="nav__item" type="button"
+                        onClick={() => this.onLinkClick("/rules")}>How It Works
+                </button>
+                <button className="nav__item" type="button"
+                        onClick={() => this.onLinkClick("/contacts")}>Contacts
+                </button>
             </div>
         );
     }
 
-    onLinkClick(path) {
-        return function (e) {
-            this.props.history.push(path)
-        }
-    }
 }
 
 export default withRouter(Nav);
