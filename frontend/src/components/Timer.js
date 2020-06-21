@@ -12,11 +12,13 @@ class Timer extends React.Component {
             timerTime: 0
         };
 
-        this.startTimer()
-
         this.finishVote = this.finishVote.bind(this)
     }
 
+
+    componentDidMount() {
+        this.startTimer()
+    }
 
     startTimer() {
         this.setState({

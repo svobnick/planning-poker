@@ -13,18 +13,27 @@ import '../styles/layout/_poll.scss';
 import '../styles/layout/_unit.scss';
 
 import Nav from "./Nav";
+import {getRoomId} from "../utils/url-utils"
 
 export const RoomContext = React.createContext({
     room: {},
-    toggleRoom: () => {}
+    toggleRoom: () => {
+    }
 })
 
 class Room extends React.Component {
+
     constructor(props) {
         super(props);
 
+        let roomId = getRoomId(window.location.href)
+        let room = this.props.location.room;
+        if (room !== undefined) {
+            localStorage.setItem(roomId, JSON.stringify(room))
+        }
+
         this.state = {
-            room: this.props.location.room
+            room: (room !== undefined) ? room : JSON.parse(localStorage.getItem(roomId)),
         }
     }
 

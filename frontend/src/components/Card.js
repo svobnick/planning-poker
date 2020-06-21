@@ -15,8 +15,9 @@ class Card extends React.Component {
                         let cardId = "card-" + index;
                         let numberId = "number-" + value;
                         let finalValue = (index === 0) ? String.fromCharCode("189") : value;
-                        return <div className="card" id={cardId} onClick={click.bind(this, cardId, numberId, index)}>
-                            <p className="card__number" id={numberId}>{finalValue}</p>
+                        return <div className="card" id={cardId} key={cardId}
+                                    onClick={click.bind(this, cardId, numberId, index)}>
+                            <p className="card__number" id={numberId} key={numberId}>{finalValue}</p>
                         </div>
                     })
                 }
