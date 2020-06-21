@@ -5,7 +5,6 @@ import com.svobnick.planning_poker.model.request.CreateRoomRequest
 import com.svobnick.planning_poker.model.request.JoinRoomRequest
 import com.svobnick.planning_poker.model.Room
 import com.svobnick.planning_poker.model.Vote
-import com.svobnick.planning_poker.model.response.CreateRoomResponse
 import com.svobnick.planning_poker.model.response.JoinRoomResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -20,13 +19,13 @@ class RoomService {
     @Autowired
     lateinit var roomDao: RoomDao
 
-    fun createNewRoom(request: CreateRoomRequest): CreateRoomResponse {
+    fun createNewRoom(request: CreateRoomRequest): JoinRoomResponse {
         val room = roomDao.save(Room())
         val userId = UUID.randomUUID().toString()
         val task = taskService.createNewTask(room.roomId!!, userId, request.username)
         room.task = task
         roomDao.save(room)
-        return CreateRoomResponse(room.roomId, userId, task)
+        return JoinRoomResponse(room.roomId, userId, task)
     }
 
     fun joinToRoom(request: JoinRoomRequest): JoinRoomResponse {
@@ -37,7 +36,7 @@ class RoomService {
         val task = taskService.getTask(room.task!!.id!!)
         task.name2votes[userId] = Vote(request.username, null)
         taskService.save(task)
-        return JoinRoomResponse(userId, task)
+        return JoinRoomResponse(room.roomId!!, userId, task)
     }
 
 }

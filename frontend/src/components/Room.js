@@ -14,31 +14,43 @@ import '../styles/layout/_unit.scss';
 
 import Nav from "./Nav";
 
+export const RoomContext = React.createContext({
+    room: {},
+    toggleRoom: () => {}
+})
+
 class Room extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            room: this.props.location.room
+        }
+    }
+
     render() {
-        // const {params} = this.props.match;
-        // const {roomId} = params;
         return (
-            <div className="poker">
-                <Menu />
+            <RoomContext.Provider value={this.state}>
+                <div className="poker">
+                    <Menu/>
 
-                <div className="title">
-                    <Story />
-                    <Timer />
-                </div>
-
-                <div className="content">
-                    <div className="poll">
-                        <Card/>
+                    <div className="title">
+                        <Story/>
+                        <Timer/>
                     </div>
-                    <div className="unit">
-                        <Players/>
-                        <Nav/>
-                    </div>
-                </div>
 
-                {/*<div className="roomId">RoomId: ({roomId})</div>*/}
-            </div>
+                    <div className="content">
+                        <div className="poll">
+                            <Card/>
+                        </div>
+                        <div className="unit">
+                            <Players/>
+                            <Nav/>
+                        </div>
+                    </div>
+
+                </div>
+            </RoomContext.Provider>
         );
     }
 }

@@ -39,7 +39,10 @@ class Enter extends React.Component {
             postRequest("http://localhost:8090/create", {username: this.state.username})
                 .then(response => {
                     console.log(response)
-                    this.props.history.push("room/" + response.roomId)
+                    this.props.history.push({
+                        pathname: "room/" + response.roomId,
+                        room: response
+                    })
                 })
         }
     }
@@ -67,7 +70,10 @@ class Enter extends React.Component {
             })
                 .then(response => {
                     console.log(response)
-                    this.props.history.push("room/" + response.task.roomId)
+                    this.props.history.push({
+                        pathname: "room/" + response.task.roomId,
+                        room: response
+                    })
                 })
         }
     }

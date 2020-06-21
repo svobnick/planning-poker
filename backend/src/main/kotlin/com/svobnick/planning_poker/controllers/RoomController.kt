@@ -2,7 +2,6 @@ package com.svobnick.planning_poker.controllers
 
 import com.svobnick.planning_poker.model.request.CreateRoomRequest
 import com.svobnick.planning_poker.model.request.JoinRoomRequest
-import com.svobnick.planning_poker.model.response.CreateRoomResponse
 import com.svobnick.planning_poker.model.response.JoinRoomResponse
 import com.svobnick.planning_poker.service.RoomService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,7 +17,7 @@ class RoomController {
     lateinit var roomService: RoomService
 
     @PostMapping("/create")
-    fun createNewRoom(@RequestBody createRequest: CreateRoomRequest): ResponseEntity<CreateRoomResponse> {
+    fun createNewRoom(@RequestBody createRequest: CreateRoomRequest): ResponseEntity<JoinRoomResponse> {
         return ResponseEntity.ok(roomService.createNewRoom(createRequest))
     }
 
