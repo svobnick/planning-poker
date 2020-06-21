@@ -8,6 +8,69 @@ import '../styles/layout/_error.scss';
 import '../styles/layout/_join.scss';
 
 class Enter extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            username: "",
+            roomId: ""
+        }
+
+        this.onNameChange = this.onNameChange.bind(this);
+        this.onCreateClick = this.onCreateClick.bind(this);
+        this.onRoomChange = this.onRoomChange.bind(this);
+        this.onJoinClick = this.onJoinClick.bind(this);
+    }
+
+    onNameChange(event) {
+        this.setState({username: event.target.value});
+        if (this.state.username !== "") {
+            let field = document.getElementById('name');
+            field.classList.remove('error');
+        }
+    }
+
+    onCreateClick(event) {
+        if (this.state.username === "") {
+            let field = document.getElementById('name');
+            field.classList.add('error');
+        } else {
+            event.preventDefault()
+            postRequest("http://localhost:8090/create", {username: this.state.username})
+                .then(response => {
+                    console.log(response)
+                    this.props.history.push("room/" + response.roomId)
+                })
+        }
+    }
+
+    onRoomChange(event) {
+        this.setState({roomId: event.target.value});
+        if (this.state.roomId !== "") {
+            let field = document.getElementById('join');
+            field.classList.remove('error');
+        }
+    }
+
+    onJoinClick(event) {
+        if (this.state.roomId === "") {
+            let field = document.getElementById('join');
+            field.classList.add('error')
+        } else if (this.state.username === "") {
+            let field = document.getElementById('name');
+            field.classList.add('error');
+        } else {
+            event.preventDefault()
+            postRequest("http://localhost:8090/join", {
+                username: this.state.username,
+                roomId: this.state.roomId
+            })
+                .then(response => {
+                    console.log(response)
+                    this.props.history.push("room/" + response.task.roomId)
+                })
+        }
+    }
 
     render() {
         return (
@@ -21,12 +84,12 @@ class Enter extends React.Component {
                     </label>
                     <br/>
                     <input
-                        onChange={this.onNameChange().bind(this)}
-                        type="text" className="field__control" id="name" required/>
+                        onChange={this.onNameChange}
+                        type="text" className="field__control" id="name" value={this.state.username} required/>
                 </div>
 
                 <button className="enter__border-button submit" type="submit"
-                        onClick={this.onCreateClick().bind(this)}
+                        onClick={this.onCreateClick}
                         style={{
                             width: "100%",
                             margin: "0.5rem 0",
@@ -43,77 +106,19 @@ class Enter extends React.Component {
                         <label className="join__group-label" htmlFor="join">Join the room</label>
                         <br/>
                         <input
-                            onChange={this.onRoomChange().bind(this)}
+                            onChange={this.onRoomChange}
                             type="text" className="join__group-control" id="join"
-                            placeholder="http://localhost:3000/"/>
+                            placeholder="http://localhost:3000/" value={this.state.roomId}/>
                     </div>
 
                     <button className="join__button submit" type="submit"
-                            onClick={this.onJoinClick().bind(this)}>
+                            onClick={this.onJoinClick}>
                         Join
                     </button>
 
                 </div>
             </div>
         );
-    }
-
-    onNameChange() {
-        return function () {
-            if (document.getElementsByClassName("field__control")[0].value !== "") {
-                let field = document.getElementById('name');
-                field.classList.remove('error');
-            }
-        }
-    }
-
-    onRoomChange() {
-        return function () {
-            if (document.getElementsByClassName("join__group")[0].value !== "") {
-                let field = document.getElementById('join');
-                field.classList.remove('error');
-            }
-        }
-    }
-
-    onCreateClick() {
-        return function (e) {
-            let name = document.getElementsByClassName("field__control")[0].value
-            if (name === "") {
-                let field = document.getElementById('name');
-                field.classList.add('error');
-            } else {
-                e.preventDefault()
-                postRequest("http://localhost:8090/create", {username: name})
-                    .then(response => {
-                        console.log(response)
-                        this.props.history.push("room/" + response.roomId)
-                    })
-            }
-        }
-    }
-
-    onJoinClick() {
-        return function (e) {
-            let name = document.getElementsByClassName("field__control")[0].value
-            let roomId = document.getElementsByClassName("join__group-control")[0].value
-            if (roomId === "" || name === "") {
-                if (roomId === "") {
-                    let field = document.getElementById('join');
-                    field.classList.add('error')
-                } else {
-                    let field = document.getElementById('name');
-                    field.classList.add('error');
-                }
-            } else {
-                e.preventDefault()
-                postRequest("http://localhost:8090/join", {username: name, roomId: roomId})
-                    .then(response => {
-                        console.log(response)
-                        this.props.history.push("room/" + response.task.roomId)
-                    })
-            }
-        }
     }
 }
 
