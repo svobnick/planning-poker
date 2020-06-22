@@ -14,7 +14,7 @@ import '../styles/layout/_unit.scss';
 
 import Nav from "./Nav";
 import {getRoomId} from "../utils/url-utils"
-import {Client, connect_callback, error_callback} from "../utils/websocket";
+// import {client, connect_callback, error_callback} from "../utils/websocket";
 
 export const RoomContext = React.createContext({
     room: {},
@@ -40,7 +40,7 @@ class Room extends React.Component {
     }
 
     componentDidMount() {
-        Client.connect({}, connect_callback, error_callback);
+        // client.connect({}, connect_callback, error_callback);
     }
 
     render() {

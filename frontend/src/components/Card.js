@@ -32,7 +32,7 @@ class Card extends React.Component {
                         return <div className={selected ? "card vote-card" : "card"}
                                     key={cardRef}
                                     onClick={() => this.onClickChoice(i)}>
-                            <p className={selected ? "card__number vote-card" : "card__number"}
+                            <p className={selected ? "card__number vote-number" : "card__number"}
                                key={numberRef}>{finalValue}</p>
                         </div>
                     })

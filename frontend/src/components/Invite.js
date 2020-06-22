@@ -12,9 +12,6 @@ class Invite extends React.Component {
 
     copy() {
         const copyText = document.getElementById('invite');
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
         navigator.clipboard.writeText(copyText.value);
     }
 

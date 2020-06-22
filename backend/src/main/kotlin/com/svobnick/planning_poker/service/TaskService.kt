@@ -35,7 +35,7 @@ class TaskService {
     fun updateTaskName(request: ChangeTaskNameRequest): String {
         var task = taskDao.findById(request.taskId)
             .orElseThrow { throw IllegalArgumentException("There's no task with taskId: ${request.taskId}") }
-        task.name = request.taskName
+        task.name = request.taskname
         task = taskDao.save(task)
         return task.name
     }

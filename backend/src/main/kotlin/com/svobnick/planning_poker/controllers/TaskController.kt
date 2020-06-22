@@ -24,7 +24,7 @@ class TaskController {
     @Autowired
     lateinit var messaging: SimpMessagingTemplate
 
-    @MessageMapping("/task/change-name")
+    @MessageMapping("/change-name")
     @SendTo("/task/name")
     fun change(@Payload request: ChangeTaskNameRequest): String {
         return taskService.updateTaskName(request)
@@ -32,7 +32,7 @@ class TaskController {
         // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
     }
 
-    @MessageMapping("/task/vote")
+    @MessageMapping("/vote")
     fun vote(@Payload request: VoteRequest) {
         val voteResults = taskService.vote(request)
         messaging.convertAndSend("/task/votes", voteResults)
@@ -43,7 +43,7 @@ class TaskController {
         // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
     }
 
-    @PostMapping("/task/finish")
+    @PostMapping("/finish")
     @SendTo("/task/result")
     fun finishVote(@Payload taskId: String): TaskVotesResultResponse {
         val task = taskService.getTask(taskId)
@@ -52,7 +52,7 @@ class TaskController {
         // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
     }
 
-    @PostMapping("/task/start")
+    @PostMapping("/start")
     @SendTo("/task/new")
     fun startVote(@Payload request: StartNewTaskRequest): Task {
         return taskService.startNewTaskRequest(request)
