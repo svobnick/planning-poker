@@ -1,6 +1,7 @@
 package com.svobnick.planning_poker.controllers
 
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Value
@@ -37,6 +38,7 @@ class TaskControllersTest {
     }
 
     @Test
+    @Ignore
     fun testRegistration() {
         val client = WebSocketStompClient(SockJsClient(createTransportClient()))
         client.messageConverter = MappingJackson2MessageConverter()
