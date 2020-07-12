@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {postRequest} from '../utils/requests'
+import {getUrlQueryParam} from "../utils/url-utils";
 
 import '../styles/layout/_enter.scss';
 import '../styles/layout/_field.scss';
@@ -78,16 +79,19 @@ class Enter extends React.Component {
         }
     }
 
+    componentDidMount() {
+        let roomInvite = getUrlQueryParam(this.props.location.search.substr(1), "invite")
+        if (roomInvite !== undefined) {
+            this.setState({roomId: roomInvite})
+        }
+    }
+
     render() {
         return (
             <div className="enter">
 
                 <div className="field">
-                    <label className="field__label" htmlFor="name">Your name
-                        {/*<span style={{color: "#585EE6", fontSize: "1.25rem", lineHeight: 1}}>*/}
-                        {/*    **/}
-                        {/*</span>*/}
-                    </label>
+                    <label className="field__label" htmlFor="name">Your name</label>
                     <br/>
                     <input
                         onChange={this.onNameChange}
@@ -114,7 +118,7 @@ class Enter extends React.Component {
                         <input
                             onChange={this.onRoomChange}
                             type="text" className="join__group-control" id="join"
-                            placeholder="http://localhost:3000/" value={this.state.roomId}/>
+                            placeholder="Enter room id" value={this.state.roomId}/>
                     </div>
 
                     <button className="join__button submit" type="submit"
