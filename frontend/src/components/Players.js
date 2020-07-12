@@ -40,6 +40,7 @@ class Players extends React.Component {
 
     render() {
         let playersIds = Object.keys(this.state.players);
+        console.log("Rerender players field");
         return (
             <div className="players">
                 <h2 className="players__title">Players</h2>

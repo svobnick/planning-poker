@@ -43,7 +43,7 @@ class TaskService {
         var task = taskDao.findById(request.taskId).orElseThrow {
             throw IllegalArgumentException("There's no task with taskId: ${request.taskId}")
         }
-        task.name2votes.putIfAbsent(request.userId, Vote(request.userName, request.vote))
+        task.name2votes[request.userId] = Vote(request.userName, request.vote)
         task = taskDao.save(task)
         return task.name2votes
     }
