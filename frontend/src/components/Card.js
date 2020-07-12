@@ -22,16 +22,16 @@ class Card extends React.Component {
     }
 
     onClickChoice(i) {
+        this.setState({
+            selectedCard: i
+        })
         postRequest("http://localhost:8090/vote/" + this.state.roomId, {
             taskId: this.state.taskId,
             userId: this.state.userId,
             userName: this.state.username,
-            vote: cards[this.state.selectedCard]
+            vote: cards[i]
         }).then(response => {
             console.log(response)
-        })
-        this.setState({
-            selectedCard: i
         })
     }
 

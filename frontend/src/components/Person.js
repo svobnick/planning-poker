@@ -21,6 +21,14 @@ class Person extends React.Component {
         })
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            answered: nextProps.answered,
+            username: nextProps.username,
+            userId: nextProps.userId
+        });
+    }
+
     render() {
         let classes = this.state.answered ? "person person--voter" : "person";
         return (

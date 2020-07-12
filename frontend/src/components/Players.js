@@ -39,8 +39,7 @@ class Players extends React.Component {
     }
 
     render() {
-        let playersIds = Object.keys(this.state.players);
-        console.log("Rerender players field");
+        let playersIds = Object.keys(this.state.players).sort();
         return (
             <div className="players">
                 <h2 className="players__title">Players</h2>
@@ -49,7 +48,7 @@ class Players extends React.Component {
                         playersIds.map((value, i) => {
                             let username = this.state.players[value].username
                             let answered = (this.state.players[value].vote !== null)
-                            return <Person userId={value} username={username} answered={answered}/>
+                            return <Person key={i} userId={value} username={username} answered={answered}/>
                         })
                     }
                 </div>
