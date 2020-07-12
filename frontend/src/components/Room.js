@@ -14,7 +14,6 @@ import '../styles/layout/_content.scss';
 import '../styles/layout/_poll.scss';
 import '../styles/layout/_unit.scss';
 
-import Nav from "./Nav";
 import {getRoomId} from "../utils/url-utils"
 
 export const RoomContext = React.createContext({

@@ -1,12 +1,16 @@
 import React from 'react';
 
 import '../styles/layout/_timer.scss';
+import {postRequest} from "../utils/requests";
+import {RoomContext} from "./Room";
 
 class Timer extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            roomId: null,
+            taskId: null,
             timerOn: false,
             timerStart: 0,
             timerTime: 0
@@ -18,6 +22,14 @@ class Timer extends React.Component {
 
     componentDidMount() {
         this.startTimer()
+
+        let room = this.props.context.room
+        let task = this.props.context.room.task
+
+        this.setState({
+            roomId: room.roomId,
+            taskId: task.id
+        })
     }
 
     startTimer() {
@@ -34,7 +46,10 @@ class Timer extends React.Component {
     };
 
     finishVote() {
-        // todo send to server finish event
+        postRequest("http://localhost:8090/finish/" + this.state.roomId, this.state.taskId.valueOf())
+            .then(response => {
+
+            })
         this.setState({
             timerOn: false,
             timerTime: 0,
@@ -57,4 +72,12 @@ class Timer extends React.Component {
     }
 }
 
-export default Timer;
+const TimerContextWrapper = () => (
+    <RoomContext.Consumer>
+        {context =>
+            <Timer context={context}/>
+        }
+    </RoomContext.Consumer>
+)
+
+export default TimerContextWrapper;

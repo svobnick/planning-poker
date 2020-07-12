@@ -5,7 +5,7 @@ const postRequest = (url, params) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(params)
+        body: typeof params === 'string' ? params : JSON.stringify(params)
     }).then(response => {
         console.log(response);
         return response.json();

@@ -31,7 +31,7 @@ class Card extends React.Component {
             userName: this.state.username,
             vote: cards[i]
         }).then(response => {
-            console.log(response)
+            // console.log(response)
         })
     }
 
@@ -69,7 +69,6 @@ class Card extends React.Component {
     }
 
 }
-
 
 const CardContextWrapper = () => (
     <RoomContext.Consumer>

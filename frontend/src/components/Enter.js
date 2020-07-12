@@ -70,7 +70,6 @@ class Enter extends React.Component {
                 roomId: this.state.roomId
             })
                 .then(response => {
-                    console.log(response)
                     this.props.history.push({
                         pathname: "room/" + response.task.roomId,
                         room: response
