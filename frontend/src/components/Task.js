@@ -2,7 +2,6 @@ import React from 'react';
 
 import '../styles/layout/_story.scss';
 import TextareaAutosize from 'react-textarea-autosize';
-// import {client} from "../utils/websocket";
 import {Client} from "@stomp/stompjs";
 import {RoomContext} from "./Room";
 
@@ -44,7 +43,7 @@ class Task extends React.Component {
                         this.setState({taskname: message.body})
                     },
                     {lol: "kek"}
-            )
+                )
             }
         });
 

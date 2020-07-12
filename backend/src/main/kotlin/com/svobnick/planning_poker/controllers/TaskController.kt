@@ -1,19 +1,17 @@
 package com.svobnick.planning_poker.controllers
 
-import com.svobnick.planning_poker.model.Task
 import com.svobnick.planning_poker.model.request.ChangeTaskNameRequest
-import com.svobnick.planning_poker.model.request.StartNewTaskRequest
 import com.svobnick.planning_poker.model.request.VoteRequest
-import com.svobnick.planning_poker.model.response.TaskVotesResultResponse
 import com.svobnick.planning_poker.service.TaskService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.messaging.handler.annotation.DestinationVariable
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.handler.annotation.Payload
-import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 
 
 @Controller
@@ -31,32 +29,26 @@ class TaskController {
         messaging.convertAndSend("/task/name/${roomId}", updatedTaskName)
     }
 
-    @MessageMapping("/vote")
-    fun vote(@Payload request: VoteRequest) {
+    @MessageMapping("/vote/{roomId}")
+    fun vote(@DestinationVariable roomId: String, @Payload request: VoteRequest) {
         val voteResults = taskService.vote(request)
-        messaging.convertAndSend("/task/votes", voteResults)
+        messaging.convertAndSend("/task/votes/${roomId}", voteResults)
         if (taskService.isVoteOver(voteResults.values)) {
-            messaging.convertAndSend("task/result", taskService.computeResult(voteResults))
+            messaging.convertAndSend("/task/result/${roomId}", taskService.computeResult(voteResults))
         }
-        TODO("send response to concrete room")
-        // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
     }
 
-    @PostMapping("/finish")
-    @SendTo("/task/result")
-    fun finishVote(@Payload taskId: String): TaskVotesResultResponse {
+    @PostMapping("/finish/{roomId}")
+    fun finishVote(@PathVariable roomId: String, @RequestBody taskId: String) {
         val task = taskService.getTask(taskId)
-        return taskService.computeResult(task.name2votes)
-        TODO("send response to concrete room")
-        // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
+        val result = taskService.computeResult(task.name2votes)
+        messaging.convertAndSend("/task/result/${roomId}", result)
     }
 
-    @PostMapping("/start")
-    @SendTo("/task/new")
-    fun startVote(@Payload request: StartNewTaskRequest): Task {
-        return taskService.startNewTaskRequest(request)
-        TODO("send response to concrete room")
-        // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
+    @PostMapping("/start/{roomId}")
+    fun startVote(@PathVariable roomId: String) {
+        val result = taskService.startNewTaskRequest(roomId)
+        messaging.convertAndSend("/task/new/${roomId}", result)
     }
 
 

@@ -6,6 +6,7 @@ import com.svobnick.planning_poker.model.response.JoinRoomResponse
 import com.svobnick.planning_poker.service.RoomService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -16,13 +17,20 @@ class RoomController {
     @Autowired
     lateinit var roomService: RoomService
 
+    @Autowired
+    lateinit var messaging: SimpMessagingTemplate
+
+
     @PostMapping("/create")
     fun createNewRoom(@RequestBody createRequest: CreateRoomRequest): ResponseEntity<JoinRoomResponse> {
-        return ResponseEntity.ok(roomService.createNewRoom(createRequest))
+        val result = roomService.createNewRoom(createRequest)
+        return ResponseEntity.ok(result)
     }
 
     @PostMapping("/join")
     fun joinToRoom(@RequestBody joinRequest: JoinRoomRequest): ResponseEntity<JoinRoomResponse> {
-        return ResponseEntity.ok(roomService.joinToRoom(joinRequest))
+        val result = roomService.joinToRoom(joinRequest)
+        messaging.convertAndSend("/task/players/${result.roomId}", result.task.name2votes)
+        return ResponseEntity.ok(result)
     }
 }

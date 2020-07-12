@@ -4,7 +4,6 @@ import com.svobnick.planning_poker.dao.TaskDao
 import com.svobnick.planning_poker.model.Task
 import com.svobnick.planning_poker.model.Vote
 import com.svobnick.planning_poker.model.request.ChangeTaskNameRequest
-import com.svobnick.planning_poker.model.request.StartNewTaskRequest
 import com.svobnick.planning_poker.model.request.VoteRequest
 import com.svobnick.planning_poker.model.response.TaskVotesResultResponse
 import org.springframework.beans.factory.annotation.Autowired
@@ -57,7 +56,7 @@ class TaskService {
         TODO("Not yet implemented")
     }
 
-    fun startNewTaskRequest(request: StartNewTaskRequest): Task {
+    fun startNewTaskRequest(roomId: String): Task {
         TODO("Not yet implemented")
     }
 
