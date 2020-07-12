@@ -25,12 +25,13 @@ class Task extends React.Component {
         let payload = {taskId: this.state.taskId, taskname: event.target.value}
 
         client.publish({
-            destination: "/app/change-name",
+            destination: "/app/change-name/" + this.props.context.room.roomId,
             body: JSON.stringify(payload)
         })
     }
 
     componentDidMount() {
+        let room = this.props.context.room
         let task = this.props.context.room.task
         this.setState({taskId: task.id, taskname: task.name})
 
@@ -38,7 +39,7 @@ class Task extends React.Component {
             brokerURL: "ws://localhost:8090/poker",
             onConnect: () => {
                 client.subscribe(
-                    "/task/name",
+                    "/task/name/" + room.roomId,
                     message => {
                         this.setState({taskname: message.body})
                     },

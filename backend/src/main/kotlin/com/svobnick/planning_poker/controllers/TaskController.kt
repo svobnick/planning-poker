@@ -7,6 +7,7 @@ import com.svobnick.planning_poker.model.request.VoteRequest
 import com.svobnick.planning_poker.model.response.TaskVotesResultResponse
 import com.svobnick.planning_poker.service.TaskService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.messaging.handler.annotation.DestinationVariable
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.handler.annotation.Payload
 import org.springframework.messaging.handler.annotation.SendTo
@@ -24,12 +25,10 @@ class TaskController {
     @Autowired
     lateinit var messaging: SimpMessagingTemplate
 
-    @MessageMapping("/change-name")
-    @SendTo("/task/name")
-    fun change(@Payload request: ChangeTaskNameRequest): String {
-        return taskService.updateTaskName(request)
-        TODO("send response to concrete room")
-        // https://stackoverflow.com/questions/28387157/multiple-rooms-in-spring-using-stomp
+    @MessageMapping("/change-name/{roomId}")
+    fun change(@DestinationVariable roomId: String, @Payload request: ChangeTaskNameRequest) {
+        val updatedTaskName = taskService.updateTaskName(request)
+        messaging.convertAndSend("/task/name/${roomId}", updatedTaskName)
     }
 
     @MessageMapping("/vote")
