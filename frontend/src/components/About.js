@@ -1,19 +1,22 @@
 import React from 'react';
 
+import Menu from './Menu';
+
 import '../styles/layout/_about.scss'
 import '../styles/layout/_note.scss'
-
-import Logo from '../images/ill.png';
 
 class About extends React.Component {
     render() {
         return (
-            <div className="start">
                 <div className="about">
+                    <Menu/>
                     <div className="about__head">
-                        <h1 className="about__head-title">About Planning&nbsp;Poker</h1>
-                        <img className="about__head-image" src={Logo} alt="logo"/>
+                        <div className="about__head-text">
+                            <h1 className="about__head-text-title">About</h1>
+                            <p className="about__head-text-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
+                        </div>
                     </div>
+
                     <div className="about__text">
                         <div className="note">
                             <h3 className="note__title"><span role="img" aria-label="magnifier">🔎</span> Summary</h3>
@@ -61,10 +64,8 @@ class About extends React.Component {
                                 Also, lively dialog between coworkers facilitates better understanding tasks and common strategy.
                             </p>
                         </div>
-
                     </div>
                 </div>
-            </div>
         );
     }
 }
