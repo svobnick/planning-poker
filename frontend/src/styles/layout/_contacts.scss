@@ -2,32 +2,24 @@
 
 .contacts {
   display: block;
-  align-self: center;
-
+  position: relative;
   max-width: 100%;
-  width: 58%;
 
-  padding: 3rem;
-
-  background-color: #ECEEFF;
-
-  @media screen and (max-width: 767px){
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  @media screen and (max-width: 410px) {
-    padding: 3rem 1rem;
-  }
+  margin-bottom: 1rem;
 
   .contacts__title {
-    margin-bottom: 1rem;
-    @extend %h2;
+    @extend %note-title;
   }
 
   .contacts__text {
-    margin-bottom: 1rem;
     @extend %contacts;
+
+    border-bottom: 1px solid #F4F4FC;
+
+    &:hover {
+      border-bottom: 1px solid #8D8BFF;
+      transition: border-bottom 0.375s;
+    }
   }
 
   .contacts__link {
