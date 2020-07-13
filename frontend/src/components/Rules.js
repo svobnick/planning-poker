@@ -3,8 +3,8 @@ import React from 'react';
 import '../styles/layout/_about.scss'
 import '../styles/layout/_note.scss'
 
-import Logo from '../images/ill.png';
 import Menu from "./Menu";
+import Back from "./Back"
 
 
 class Rules extends React.Component {
@@ -73,6 +73,7 @@ class Rules extends React.Component {
                     </div>
 
                 </div>
+                <Back/>
             </div>
         );
     }

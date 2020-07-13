@@ -1,0 +1,40 @@
+@import "../helpers/snippets.scss";
+@import "../helpers/mixins.scss";
+
+.back {
+  display: block;
+  position: relative;
+
+  padding: 2rem 1rem 1rem;
+
+  .back__button {
+    @include light-button();
+
+    &:before {
+      content: "";
+      display: inline-block;
+      background: url('../../images/arrow.svg') no-repeat;
+      width:  15px;
+      height: 15px;
+
+      overflow: hidden;
+      vertical-align: top;
+
+      margin-right: 0.25rem;
+    }
+
+    &:hover:before {
+      content: "";
+      display: inline-block;
+      background: url('../../images/arrow-hover.svg') no-repeat;
+      width:  15px;
+      height: 15px;
+
+      overflow: hidden;
+      vertical-align: top;
+
+      margin-right: 0.25rem;
+      transition: all 0.375s;
+    }
+  }
+}

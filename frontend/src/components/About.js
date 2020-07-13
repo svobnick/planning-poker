@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Menu from './Menu';
+import Back from "./Back"
 
 import '../styles/layout/_about.scss'
 import '../styles/layout/_note.scss'
@@ -65,6 +66,7 @@ class About extends React.Component {
                             </p>
                         </div>
                     </div>
+                    <Back/>
                 </div>
         );
     }
