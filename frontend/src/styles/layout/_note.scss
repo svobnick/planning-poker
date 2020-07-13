@@ -5,7 +5,15 @@
   flex-flow: row wrap;
   position: relative;
 
-  padding: 1rem 0;
+  width: 80%;
+
+  background-color: #FFFFFF;
+  box-shadow: 10px 10px 20px #A6ABBD, -10px -10px 20px #FAFBFF;
+  margin-bottom: 1rem;
+
+  padding: 1rem;
+
+  border-radius: 8px;
 
   .note__title {
     display: block;
@@ -26,7 +34,7 @@
     display: block;
     position: relative;
 
-    width: calc(70% - 1rem);
+    width: calc(80% - 1rem);
     max-width: 100%;
 
     @extend %note-text;
