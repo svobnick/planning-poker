@@ -6,51 +6,39 @@
 
   margin: 0 1rem 2rem;
 
-
   .about__head {
     display: block;
     position: relative;
 
-    width: 100%;
-    min-height: 250px;
-    margin: 1rem 0;
+    margin: 4rem 0 1rem;
 
-    //background-image: url(./../../images/pattern.png);
-    //background-size: 6rem auto;
-    //background-repeat: repeat;
-    //background-position: 100% 100%;
+    width: 100%;
 
     @media screen and (max-width: 767px) {
-      min-height: 200px;
+      margin: 2rem 0 1rem;
     }
 
-    .about__head-text {
+    .about__head-img {
       display: block;
-      position: absolute;
-      bottom: 2rem;
+      position: relative;
+      width: 6rem;
+      height: auto;
 
-      margin: 1rem;
+      margin: 1rem 0;
 
-      @media screen and (max-width: 410px) {
-        bottom: 1rem;
+      @media screen and (max-width: 767px) {
+        width: 4rem;
       }
+    }
 
-      .about__head-text-title {
-        @extend %about;
+    .about__head-title {
+      @extend %about;
+      margin-bottom: 0.5rem;
+    }
 
-        display: inline-block;
-        margin-bottom: 0.5rem;
-        //padding: 0.5rem 1rem;
-        //background-color: #FFFFFF;
-      }
-
-      .about__head-text-lead {
-        @extend %lead;
-
-        //background-color: #ffffff;
-        //padding: 0.5rem 1rem;
-      }
-
+    .about__head-lead {
+      @extend %lead;
+      margin-bottom: 0.25rem;
     }
   }
 
@@ -59,10 +47,10 @@
     position: relative;
 
     width: 100%;
-    padding: 2rem 1rem 0;
+    padding: 2rem 0 0;
 
     @media screen and (max-width: 767px) {
-      padding: 1rem 1rem 2rem;
+      padding: 1rem 0 2rem;
     }
   }
 }

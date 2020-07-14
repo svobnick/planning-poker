@@ -4,7 +4,9 @@ import '../styles/layout/_about.scss'
 import '../styles/layout/_note.scss'
 
 import Menu from "./Menu";
-import Back from "./Back"
+import Back from "./Back";
+
+import Chart from '../images/chart.png'
 
 
 class Rules extends React.Component {
@@ -13,10 +15,9 @@ class Rules extends React.Component {
             <div className="about">
                 <Menu/>
                 <div className="about__head">
-                    <div className="about__head-text">
-                        <h1 className="about__head-text-title">How It Works</h1>
-                        <p className="about__head-text-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
-                    </div>
+                    <img className="about__head-img" src={Chart} />
+                    <h1 className="about__head-title">How It Works</h1>
+                    <p className="about__head-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
                 </div>
 
                 <div className="about__text">

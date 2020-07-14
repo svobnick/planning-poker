@@ -1,10 +1,12 @@
 import React from 'react';
 
 import Menu from './Menu';
-import Back from "./Back"
+import Back from "./Back";
 
-import '../styles/layout/_about.scss'
-import '../styles/layout/_note.scss'
+import '../styles/layout/_about.scss';
+import '../styles/layout/_note.scss';
+
+import Calc from '../images/calc.png'
 
 class About extends React.Component {
     render() {
@@ -12,10 +14,9 @@ class About extends React.Component {
                 <div className="about">
                     <Menu/>
                     <div className="about__head">
-                        <div className="about__head-text">
-                            <h1 className="about__head-text-title">About</h1>
-                            <p className="about__head-text-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
-                        </div>
+                        <img className="about__head-img" src={Calc} />
+                        <h1 className="about__head-title">About</h1>
+                        <p className="about__head-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
                     </div>
 
                     <div className="about__text">

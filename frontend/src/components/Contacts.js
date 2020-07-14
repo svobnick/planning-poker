@@ -7,6 +7,8 @@ import '../styles/layout/_contacts.scss';
 import Menu from "./Menu";
 import Back from "./Back";
 
+import Bubble from '../images/bubble.png'
+
 
 class Contacts extends React.Component {
     render() {
@@ -14,10 +16,10 @@ class Contacts extends React.Component {
             <div className="about">
                 <Menu/>
                 <div className="about__head">
-                    <div className="about__head-text">
-                        <h1 className="about__head-text-title">Get in touch</h1>
-                        <p className="about__head-text-lead">We'd love to hear how to make Planning Poker better for you — feel free to write us</p>
-                    </div>
+                    <img className="about__head-img" src={Bubble} />
+                    <h1 className="about__head-title">Get in touch</h1>
+                    <p className="about__head-lead">We'd love to hear how to make Planning Poker better for you.</p>
+                    <p className="about__head-lead">Feel free to write us!</p>
                 </div>
 
                 <div className="about__text">

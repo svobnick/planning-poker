@@ -15,6 +15,14 @@
 
   border-radius: 8px;
 
+  @media screen and (max-width: 1023px){
+    width: 90%;
+  }
+
+  @media screen and (max-width: 767px){
+    width: 100%;
+  }
+
   .note__title {
     display: block;
     position: relative;
