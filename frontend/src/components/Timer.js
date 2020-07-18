@@ -28,7 +28,9 @@ class Timer extends React.Component {
 
         this.setState({
             roomId: room.roomId,
-            taskId: task.id
+            taskId: task.id,
+            timerStart: task.startAt,
+            timerTime: Date.now() - this.state.timerStart
         })
     }
 
