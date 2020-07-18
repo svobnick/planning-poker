@@ -13,7 +13,8 @@ class Timer extends React.Component {
             taskId: null,
             timerOn: false,
             timerStart: 0,
-            timerTime: 0
+            timerTime: 0,
+            showResult: false
         };
 
         this.finishVote = this.finishVote.bind(this)
@@ -25,12 +26,13 @@ class Timer extends React.Component {
 
         let room = this.props.context.room
         let task = this.props.context.room.task
+        let result = this.props.context.result
 
         this.setState({
             roomId: room.roomId,
             taskId: task.id,
             timerStart: task.startAt,
-            timerTime: Date.now() - this.state.timerStart
+            showResult: result != null
         })
     }
 
@@ -42,7 +44,8 @@ class Timer extends React.Component {
         });
         this.timer = setInterval(() => {
             this.setState({
-                timerTime: Date.now() - this.state.timerStart
+                timerTime: Date.now() - this.state.timerStart,
+                showResult: false
             });
         }, 10);
     };
@@ -55,7 +58,8 @@ class Timer extends React.Component {
         this.setState({
             timerOn: false,
             timerTime: 0,
-            timerStart: undefined
+            timerStart: undefined,
+            showResult: true
         });
         clearInterval(this.timer);
     };
@@ -64,11 +68,12 @@ class Timer extends React.Component {
         const {timerTime} = this.state;
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
+        let buttonText = this.state.showResult ? "Start" : "Stop"
 
         return (
             <div className="timer">
                 <div className="timer__counter">{minutes}:{seconds}</div>
-                <button className="timer__button" onClick={this.finishVote}>Stop</button>
+                <button className="timer__button" onClick={this.finishVote}>{buttonText}</button>
             </div>
         );
     }
