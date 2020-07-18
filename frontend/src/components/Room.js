@@ -15,13 +15,16 @@ import '../styles/layout/_poll.scss';
 import '../styles/layout/_unit.scss';
 
 import {getRoomId} from "../utils/url-utils"
+import {Client} from "@stomp/stompjs";
 
 export const RoomContext = React.createContext({
     room: {},
+    result: null,
     toggleRoom: () => {
     }
 })
 
+const client = new Client()
 
 class Room extends React.Component {
 
@@ -36,10 +39,27 @@ class Room extends React.Component {
 
         this.state = {
             room: (room !== undefined) ? room : JSON.parse(localStorage.getItem(roomId)),
+            result: null,
         }
     }
 
     componentDidMount() {
+        let room = this.state.room
+
+        client.configure({
+            brokerURL: "ws://localhost:8090/poker",
+            onConnect: () => {
+                client.subscribe(
+                    "/task/result/" + room.roomId,
+                    message => {
+                        this.setState({result: JSON.parse(message.body)})
+                    },
+                    {lol: "kek"}
+                )
+            }
+        });
+
+        client.activate();
     }
 
     render() {
@@ -55,7 +75,9 @@ class Room extends React.Component {
 
                     <div className="content">
                         <div className="poll">
-                            <Card/>
+                            {
+                                this.state.result != null ? <Stat/> : <Card/>
+                            }
                         </div>
                         <div className="unit">
                             <Players/>

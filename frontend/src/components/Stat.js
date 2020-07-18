@@ -2,9 +2,31 @@ import React from 'react';
 
 import '../styles/layout/_stat.scss';
 import '../styles/layout/_result.scss';
+import {RoomContext} from "./Room";
 
 class Stat extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            result: {
+                votes2names: {}
+            }
+        }
+    }
+
+    componentDidMount() {
+        let result = this.props.context.result
+
+        this.setState({
+            result: result
+        })
+    }
+
     render() {
+        let result = this.state.result
+        let scores = Object.keys(this.state.result.votes2names)
+
         return (
             <div className="stat">
                 <h2 className="stat__title">Statistics</h2>
@@ -12,39 +34,28 @@ class Stat extends React.Component {
                     <div className="stat__data-info">
                         <div className="result">
                             <h4 className="result__title">Average result:</h4>
-                            <p className="result__text">13 points</p>
+                            <p className="result__text">{result.average} points</p>
                         </div>
                         <div className="result">
                             <h4 className="result__title">Time:</h4>
-                            <p className="result__text">02:54</p>
+                            <p className="result__text">{result.elapsedTime}</p>
                         </div>
                         <div className="result">
                             <h4 className="result__title">Votes:</h4>
-                            <p className="result__text">11</p>
+                            <p className="result__text">{result.votesAmount}</p>
                         </div>
 
                     </div>
                     <div className="stat__data-details">
-                        <div className="result">
-                            <h4 className="result__title">3</h4>
-                            <p className="result__text">John Doe</p>
-                        </div>
-                        <div className="result">
-                            <h4 className="result__title">5</h4>
-                            <p className="result__text">Sally Young, Kira Fischer, Ryker Chambers</p>
-                        </div>
-                        <div className="result">
-                            <h4 className="result__title">13</h4>
-                            <p className="result__text">Alfred Pitt, Sally Young, Darnell Winters, Ronan Goodman, Lol Kek</p>
-                        </div>
-                        <div className="result">
-                            <h4 className="result__title">21</h4>
-                            <p className="result__text">Kira Fischer</p>
-                        </div>
-                        <div className="result">
-                            <h4 className="result__title">55</h4>
-                            <p className="result__text">Ryker Chambers</p>
-                        </div>
+                        {
+                            scores.map((value) => {
+                                let names = result.votes2names[value].join(", ")
+                                return <div className="result">
+                                    <h4 className="result__title">{value}</h4>
+                                    <p className="result__text">{names}</p>
+                                </div>
+                            })
+                        }
                     </div>
                 </div>
 
@@ -56,4 +67,12 @@ class Stat extends React.Component {
     }
 }
 
-export default Stat;
+const StatContextWrapper = () => (
+    <RoomContext.Consumer>
+        {context =>
+            <Stat context={context}/>
+        }
+    </RoomContext.Consumer>
+)
+
+export default StatContextWrapper;

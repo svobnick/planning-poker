@@ -32,10 +32,10 @@ class TaskController {
 
     @PostMapping("/vote/{roomId}")
     fun vote(@PathVariable roomId: String, @RequestBody request: VoteRequest): ResponseEntity<Any> {
-        val voteResults = taskService.vote(request)
-        messaging.convertAndSend("/task/players/${roomId}", voteResults)
-        if (taskService.isVoteOver(voteResults.values)) {
-            messaging.convertAndSend("/task/result/${roomId}", taskService.computeResult(voteResults))
+        val task = taskService.vote(request)
+        messaging.convertAndSend("/task/players/${roomId}", task.name2votes)
+        if (taskService.isVoteOver(task.name2votes.values)) {
+            messaging.convertAndSend("/task/result/${roomId}", taskService.computeResult(task.name2votes, task.startAt))
         }
         return ResponseEntity.ok().build()
     }
@@ -43,14 +43,14 @@ class TaskController {
     @PostMapping("/finish/{roomId}")
     fun finishVote(@PathVariable roomId: String, @RequestBody taskId: String): ResponseEntity<Any> {
         val task = taskService.getTask(taskId)
-        val result = taskService.computeResult(task.name2votes)
+        val result = taskService.computeResult(task.name2votes, task.startAt)
         messaging.convertAndSend("/task/result/${roomId}", result)
         return ResponseEntity.ok().build()
     }
 
     @PostMapping("/start/{roomId}")
-    fun startVote(@PathVariable roomId: String): ResponseEntity<Any> {
-        val result = taskService.startNewTaskRequest(roomId)
+    fun startVote(@PathVariable roomId: String, @RequestBody taskId: String): ResponseEntity<Any> {
+        val result = taskService.startNewTaskRequest(roomId, taskId)
         messaging.convertAndSend("/task/new/${roomId}", result)
         return ResponseEntity.ok().build()
     }
