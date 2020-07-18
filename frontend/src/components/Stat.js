@@ -26,6 +26,8 @@ class Stat extends React.Component {
     render() {
         let result = this.state.result
         let scores = Object.keys(this.state.result.votes2names)
+        let seconds = ("0" + (Math.floor(result.elapsedTime / 1000) % 60)).slice(-2);
+        let minutes = ("0" + (Math.floor(result.elapsedTime / 60000) % 60)).slice(-2);
 
         return (
             <div className="stat">
@@ -38,7 +40,7 @@ class Stat extends React.Component {
                         </div>
                         <div className="result">
                             <h4 className="result__title">Time:</h4>
-                            <p className="result__text">{result.elapsedTime}</p>
+                            <p className="result__text">{minutes}:{seconds}</p>
                         </div>
                         <div className="result">
                             <h4 className="result__title">Votes:</h4>
