@@ -50,14 +50,17 @@ class Stat extends React.Component {
                     </div>
                     <div className="stat__data-details">
                         {
-                            scores.map((value) => {
+                            scores.map((value, i) => {
                                 let score = value !== '0.5'
                                     ? Math.round(parseFloat(value)).toString()
                                     : String.fromCharCode("189")
+                                let resultRef = "result-" + i
+                                let resultScoreRef = "result-score-" + i
+                                let resultNamesRef = "result-names-" + i
                                 let names = result.votes2names[value].join(", ")
-                                return <div className="result">
-                                    <h4 className="result__title">{score}</h4>
-                                    <p className="result__text">{names}</p>
+                                return <div className="result" key={resultRef}>
+                                    <h4 className="result__title" key={resultScoreRef}>{score}</h4>
+                                    <p className="result__text" key={resultNamesRef}>{names}</p>
                                 </div>
                             })
                         }

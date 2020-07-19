@@ -20,20 +20,37 @@ class Timer extends React.Component {
         this.finishVote = this.finishVote.bind(this)
     }
 
-
     componentDidMount() {
         this.startTimer()
 
         let room = this.props.context.room
         let task = this.props.context.room.task
-        let result = this.props.context.result
+        let showResult = this.props.context.result != null
 
         this.setState({
             roomId: room.roomId,
             taskId: task.id,
             timerStart: task.startAt,
-            showResult: result != null
+            showResult: showResult
         })
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log(nextProps.context.result)
+        console.log("Compute: " + nextProps.context.result != null)
+        let showResult = nextProps.context.result != null
+        console.log("ShowResult: " + showResult)
+
+        this.setState({
+            timerOn: !showResult,
+            showResult: showResult
+        });
+        if (showResult) {
+            this.setState({
+                timerTime: 0
+            })
+            clearInterval(this.timer);
+        }
     }
 
     startTimer() {
@@ -47,7 +64,7 @@ class Timer extends React.Component {
                 timerTime: Date.now() - this.state.timerStart,
                 showResult: false
             });
-        }, 10);
+        }, 1000);
     };
 
     finishVote() {
