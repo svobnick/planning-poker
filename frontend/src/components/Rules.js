@@ -15,7 +15,7 @@ class Rules extends React.Component {
             <div className="about">
                 <Menu/>
                 <div className="about__head">
-                    <img className="about__head-img" src={Chart} />
+                    <img className="about__head-img" alt="rules logo" src={Chart} />
                     <h1 className="about__head-title">How It Works</h1>
                     <p className="about__head-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
                 </div>

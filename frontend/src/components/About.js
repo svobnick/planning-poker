@@ -14,7 +14,7 @@ class About extends React.Component {
                 <div className="about">
                     <Menu/>
                     <div className="about__head">
-                        <img className="about__head-img" src={Calc} />
+                        <img className="about__head-img" alt="about logo" src={Calc} />
                         <h1 className="about__head-title">About</h1>
                         <p className="about__head-lead">Listen, can you meet me at Twin Pines Mall tonight at 1:15?</p>
                     </div>

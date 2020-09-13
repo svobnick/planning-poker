@@ -3,6 +3,7 @@ import React from 'react';
 import '../styles/layout/_stat.scss';
 import '../styles/layout/_result.scss';
 import {RoomContext} from "./Room";
+import {postRequest} from "../utils/requests";
 
 class Stat extends React.Component {
     constructor(props) {
@@ -13,15 +14,28 @@ class Stat extends React.Component {
                 votes2names: {}
             }
         }
+
+        this.startVote = this.startVote.bind(this)
     }
 
     componentDidMount() {
         let result = this.props.context.result
+        let roomId = this.props.context.room.roomId
+        let taskId = this.props.context.room.task.id
 
         this.setState({
-            result: result
+            result: result,
+            roomId: roomId,
+            taskId: taskId
         })
     }
+
+    startVote() {
+        postRequest("http://localhost:8090/start/" + this.state.roomId, this.state.taskId.valueOf())
+            .then(response => {
+
+            })
+    };
 
     render() {
         let result = this.state.result
@@ -67,8 +81,7 @@ class Stat extends React.Component {
                     </div>
                 </div>
 
-                <button className="stat__button">Play again</button>
-
+                <button className="stat__button" onClick={this.startVote}>Play again</button>
 
             </div>
         );

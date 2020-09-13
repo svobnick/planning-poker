@@ -35,10 +35,12 @@ class Room extends React.Component {
         let room = this.props.location.room;
         if (room !== undefined) {
             localStorage.setItem(roomId, JSON.stringify(room))
+        } else {
+            room = JSON.parse(localStorage.getItem(roomId))
         }
 
         this.state = {
-            room: (room !== undefined) ? room : JSON.parse(localStorage.getItem(roomId)),
+            room: room,
             result: null,
         }
     }
@@ -52,9 +54,23 @@ class Room extends React.Component {
                 client.subscribe(
                     "/task/result/" + room.roomId,
                     message => {
-                        this.setState({result: JSON.parse(message.body)})
-                    },
-                    {lol: "kek"}
+                        this.setState({
+                            result: JSON.parse(message.body)
+                        })
+                    }
+                )
+
+                client.subscribe(
+                    "/task/new/" + room.roomId,
+                    message => {
+                        let room = this.state.room;
+                        room.task = JSON.parse(message.body)
+
+                        this.setState({
+                            room: room,
+                            result: null
+                        })
+                    }
                 )
             }
         });

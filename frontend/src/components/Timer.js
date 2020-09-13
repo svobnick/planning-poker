@@ -18,6 +18,7 @@ class Timer extends React.Component {
         };
 
         this.finishVote = this.finishVote.bind(this)
+        this.startVote = this.startVote.bind(this)
     }
 
     componentDidMount() {
@@ -81,16 +82,24 @@ class Timer extends React.Component {
         clearInterval(this.timer);
     };
 
+    startVote() {
+        postRequest("http://localhost:8090/start/" + this.state.roomId, this.state.taskId.valueOf())
+            .then(response => {
+
+            })
+    };
+
     render() {
         const {timerTime} = this.state;
         let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
         let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
         let buttonText = this.state.showResult ? "Start" : "Stop"
+        let onClick = this.state.showResult ? this.startVote : this.finishVote
 
         return (
             <div className="timer">
                 <div className="timer__counter">{minutes}:{seconds}</div>
-                <button className="timer__button" onClick={this.finishVote}>{buttonText}</button>
+                <button className="timer__button" onClick={onClick}>{buttonText}</button>
             </div>
         );
     }
