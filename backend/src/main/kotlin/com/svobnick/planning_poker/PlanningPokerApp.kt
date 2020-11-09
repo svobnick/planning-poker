@@ -3,8 +3,6 @@ package com.svobnick.planning_poker
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory
-import org.springframework.data.redis.core.RedisTemplate
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
@@ -29,17 +27,5 @@ open class PlanningPokerApp {
                     .allowedMethods("*")
             }
         }
-    }
-
-    @Bean
-    open fun jedisConnectionFactory(): JedisConnectionFactory {
-        return JedisConnectionFactory()
-    }
-
-    @Bean
-    open fun redisTemplate(): RedisTemplate<String, Any> {
-        val template = RedisTemplate<String, Any>()
-        template.connectionFactory = jedisConnectionFactory()
-        return template
     }
 }

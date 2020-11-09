@@ -32,7 +32,7 @@ class Task extends React.Component {
     componentDidMount() {
         let room = this.props.context.room
         let task = this.props.context.room.task
-        this.setState({taskId: task.id, taskname: task.name})
+        this.setState({taskId: task.taskId, taskname: task.name})
 
         client.configure({
             brokerURL: "ws://localhost:8090/poker",

@@ -21,7 +21,7 @@ class Stat extends React.Component {
     componentDidMount() {
         let result = this.props.context.result
         let roomId = this.props.context.room.roomId
-        let taskId = this.props.context.room.task.id
+        let taskId = this.props.context.room.task.taskId
 
         this.setState({
             result: result,

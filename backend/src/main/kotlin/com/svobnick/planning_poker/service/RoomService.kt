@@ -1,6 +1,6 @@
 package com.svobnick.planning_poker.service
 
-import com.svobnick.planning_poker.dao.RoomDao
+import com.svobnick.planning_poker.storage.RoomStorage
 import com.svobnick.planning_poker.model.request.CreateRoomRequest
 import com.svobnick.planning_poker.model.request.JoinRoomRequest
 import com.svobnick.planning_poker.model.Room
@@ -17,23 +17,23 @@ class RoomService {
     @Autowired
     lateinit var taskService: TaskService
     @Autowired
-    lateinit var roomDao: RoomDao
+    lateinit var roomStorage: RoomStorage
 
     fun createNewRoom(request: CreateRoomRequest): JoinRoomResponse {
-        val room = roomDao.save(Room())
+        val room = roomStorage.save(Room())
         val userId = UUID.randomUUID().toString()
         val task = taskService.createNewTask(room.roomId!!, userId, request.username)
         room.task = task
-        roomDao.save(room)
-        return JoinRoomResponse(room.roomId, userId, task)
+        roomStorage.save(room)
+        return JoinRoomResponse(room.roomId!!, userId, task)
     }
 
     fun joinToRoom(request: JoinRoomRequest): JoinRoomResponse {
-        val room = roomDao.findById(request.roomId).orElseThrow {
+        val room = roomStorage.findById(request.roomId).orElseThrow {
             throw IllegalArgumentException("Room ${request.roomId} not exist!")
         }
         val userId = UUID.randomUUID().toString()
-        val task = taskService.getTask(room.task!!.id!!)
+        val task = taskService.getTask(room.task!!.taskId!!)
         task.name2votes[userId] = Vote(request.username, null)
         taskService.save(task)
         return JoinRoomResponse(room.roomId!!, userId, task)

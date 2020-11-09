@@ -1,7 +1,7 @@
 package com.svobnick.planning_poker.service
 
-import com.svobnick.planning_poker.dao.RoomDao
-import com.svobnick.planning_poker.dao.TaskDao
+import com.svobnick.planning_poker.storage.RoomStorage
+import com.svobnick.planning_poker.storage.TaskStorage
 import com.svobnick.planning_poker.model.Task
 import com.svobnick.planning_poker.model.Vote
 import com.svobnick.planning_poker.model.request.ChangeTaskNameRequest
@@ -16,40 +16,39 @@ import java.lang.IllegalArgumentException
 class TaskService {
 
     @Autowired
-    lateinit var taskDao: TaskDao
-
+    lateinit var taskStorage: TaskStorage
     @Autowired
-    lateinit var roomDao: RoomDao
+    lateinit var roomStorage: RoomStorage
 
     fun createNewTask(roomId: String, userId: String, username: String): Task {
         val task = Task(roomId = roomId)
         task.name2votes.putIfAbsent(userId, Vote(username, null))
-        return taskDao.save(task)
+        return taskStorage.save(task)
     }
 
     fun getTask(taskId: String): Task {
-        return taskDao.findById(taskId)
+        return taskStorage.findById(taskId)
             .orElseThrow { throw IllegalArgumentException("There's no task with taskId: $taskId") }
     }
 
     fun save(task: Task) {
-        taskDao.save(task)
+        taskStorage.save(task)
     }
 
     fun updateTaskName(request: ChangeTaskNameRequest): String {
-        var task = taskDao.findById(request.taskId)
+        var task = taskStorage.findById(request.taskId)
             .orElseThrow { throw IllegalArgumentException("There's no task with taskId: ${request.taskId}") }
         task.name = request.taskname
-        task = taskDao.save(task)
+        task = taskStorage.save(task)
         return task.name
     }
 
     fun vote(request: VoteRequest): Task {
-        var task = taskDao.findById(request.taskId).orElseThrow {
+        var task = taskStorage.findById(request.taskId).orElseThrow {
             throw IllegalArgumentException("There's no task with taskId: ${request.taskId}")
         }
         task.name2votes[request.userId] = Vote(request.userName, request.vote)
-        task = taskDao.save(task)
+        task = taskStorage.save(task)
         return task
     }
 
@@ -78,15 +77,15 @@ class TaskService {
     }
 
     fun startNewTaskRequest(roomId: String, oldTaskId: String): Task {
-        val oldTask = taskDao.findById(oldTaskId)
+        val oldTask = taskStorage.findById(oldTaskId)
             .orElseThrow { throw IllegalArgumentException("There's no task with taskId: $oldTaskId") }
         val newTask = copyUsersToNewTask(roomId, oldTask)
 
-        val room = roomDao.findById(roomId).orElseThrow {
+        val room = roomStorage.findById(roomId).orElseThrow {
             throw IllegalArgumentException("Room $roomId not exist!")
         }
         room.task = newTask
-        roomDao.save(room)
+        roomStorage.save(room)
         return newTask
     }
 
@@ -94,7 +93,7 @@ class TaskService {
         val result = Task(roomId = roomId)
         for (name2vote in oldTask.name2votes) {
             val vote: Vote = name2vote.value
-            result.name2votes[name2vote.key] = Vote(name2vote.value.username, null)
+            result.name2votes[name2vote.key] = Vote(vote.username, null)
         }
         return result
     }

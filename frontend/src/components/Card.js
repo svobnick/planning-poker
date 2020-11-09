@@ -43,7 +43,7 @@ class Card extends React.Component {
             roomId: room.roomId,
             userId: room.userId,
             username: task.name2votes[room.userId].username,
-            taskId: task.id,
+            taskId: task.taskId,
         })
     }
 
