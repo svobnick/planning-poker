@@ -36,22 +36,20 @@ class Timer extends React.Component {
         })
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        console.log(nextProps.context.result)
-        console.log("Compute: " + nextProps.context.result != null)
+    static getDerivedStateFromProps(nextProps) {
         let showResult = nextProps.context.result != null
-        console.log("ShowResult: " + showResult)
 
-        this.setState({
+        if (showResult) {
+            clearInterval(this.timer);
+            return {
+                timerTime: 0
+            };
+        }
+
+        return {
             timerOn: !showResult,
             showResult: showResult
-        });
-        if (showResult) {
-            this.setState({
-                timerTime: 0
-            })
-            clearInterval(this.timer);
-        }
+        };
     }
 
     startTimer() {
@@ -66,7 +64,8 @@ class Timer extends React.Component {
                 showResult: false
             });
         }, 1000);
-    };
+    }
+    ;
 
     finishVote() {
         postRequest("http://localhost:8090/finish/" + this.state.roomId, this.state.taskId.valueOf())
@@ -80,14 +79,16 @@ class Timer extends React.Component {
             showResult: true
         });
         clearInterval(this.timer);
-    };
+    }
+    ;
 
     startVote() {
         postRequest("http://localhost:8090/start/" + this.state.roomId, this.state.taskId.valueOf())
             .then(response => {
 
             })
-    };
+    }
+    ;
 
     render() {
         const {timerTime} = this.state;
@@ -105,12 +106,13 @@ class Timer extends React.Component {
     }
 }
 
-const TimerContextWrapper = () => (
-    <RoomContext.Consumer>
-        {context =>
-            <Timer context={context}/>
-        }
-    </RoomContext.Consumer>
-)
+const
+    TimerContextWrapper = () => (
+        <RoomContext.Consumer>
+            {context =>
+                <Timer context={context}/>
+            }
+        </RoomContext.Consumer>
+    )
 
 export default TimerContextWrapper;

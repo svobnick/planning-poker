@@ -21,12 +21,12 @@ class Person extends React.Component {
         })
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.setState({
+    static getDerivedStateFromProps(nextProps) {
+        return {
             answered: nextProps.answered,
             username: nextProps.username,
             userId: nextProps.userId
-        });
+        };
     }
 
     render() {

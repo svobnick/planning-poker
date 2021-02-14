@@ -26,15 +26,16 @@ class Enter extends React.Component {
     onNameChange(event) {
         this.setState({username: event.target.value});
         if (this.state.username !== "") {
-            let field = document.getElementById('name');
+            const field = document.getElementById('name');
             field.classList.remove('error');
         }
     }
 
     onCreateClick(event) {
-        if (this.state.username === "") {
-            let field = document.getElementById('name');
+        if (this.state.username === "" || this.state.username === null) {
+            const field = document.getElementById('name');
             field.classList.add('error');
+            field.focus()
         } else {
             event.preventDefault()
             postRequest("http://localhost:8090/create", {username: this.state.username})
@@ -51,18 +52,20 @@ class Enter extends React.Component {
     onRoomChange(event) {
         this.setState({roomId: event.target.value});
         if (this.state.roomId !== "") {
-            let field = document.getElementById('join');
+            const field = document.getElementById('join');
             field.classList.remove('error');
         }
     }
 
     onJoinClick(event) {
-        if (this.state.roomId === "") {
-            let field = document.getElementById('join');
+        if (this.state.roomId === "" || this.state.roomId === null) {
+            const field = document.getElementById('join');
             field.classList.add('error')
-        } else if (this.state.username === "") {
-            let field = document.getElementById('name');
+            field.focus()
+        } else if (this.state.username === "" || this.state.username === null) {
+            const field = document.getElementById('name');
             field.classList.add('error');
+            field.focus()
         } else {
             event.preventDefault()
             postRequest("http://localhost:8090/join", {
@@ -79,7 +82,7 @@ class Enter extends React.Component {
     }
 
     componentDidMount() {
-        let roomInvite = getUrlQueryParam(this.props.location.search.substr(1), "invite")
+        const roomInvite = getUrlQueryParam(this.props.location.search.substr(1), "invite")
         if (roomInvite !== undefined) {
             this.setState({roomId: roomInvite})
         }
@@ -94,10 +97,14 @@ class Enter extends React.Component {
                     <br/>
                     <input
                         onChange={this.onNameChange}
-                        type="text" className="field__control" id="name" value={this.state.username} required/>
+                        type="text"
+                        className="field__control"
+                        id="name"
+                        value={this.state.username || ''}/>
                 </div>
 
-                <button className="enter__border-button submit" type="submit"
+                <button className="enter__border-button"
+                        type="button"
                         onClick={this.onCreateClick}
                         style={{
                             width: "100%",
@@ -116,11 +123,15 @@ class Enter extends React.Component {
                         <br/>
                         <input
                             onChange={this.onRoomChange}
-                            type="text" className="join__group-control" id="join"
-                            placeholder="Enter room id" value={this.state.roomId}/>
+                            type="text"
+                            className="join__group-control"
+                            id="join"
+                            placeholder="Enter room id"
+                            value={this.state.roomId || ''}/>
                     </div>
 
-                    <button className="join__button submit" type="submit"
+                    <button className="join__button"
+                            type="button"
                             onClick={this.onJoinClick}>
                         Join
                     </button>
