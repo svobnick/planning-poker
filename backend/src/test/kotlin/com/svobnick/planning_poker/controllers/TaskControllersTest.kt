@@ -66,8 +66,8 @@ class TaskControllersTest {
         }
 
         override fun handleFrame(stompHeaders: StompHeaders, o: Any) {
-            println(o as Any)
-            completableFuture.complete(o as Any)
+            println(o)
+            completableFuture.complete(o)
         }
     }
 }
