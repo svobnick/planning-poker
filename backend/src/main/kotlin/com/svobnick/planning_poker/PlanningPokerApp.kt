@@ -22,7 +22,6 @@ open class PlanningPokerApp {
         return object : WebMvcConfigurer {
             override fun addCorsMappings(registry: CorsRegistry) {
                 registry.addMapping("/**")
-                    .allowCredentials(true)
                     .allowedOrigins("*")
                     .allowedMethods("*")
             }
