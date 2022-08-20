@@ -40,7 +40,7 @@ class Timer extends React.Component {
         let showResult = nextProps.context.result != null
 
         if (showResult) {
-            clearInterval(this.timer);
+            clearInterval(this);
             return {
                 timerTime: 0
             };
