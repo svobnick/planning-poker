@@ -19,9 +19,7 @@ import {Client} from "@stomp/stompjs";
 
 export const RoomContext = React.createContext({
     room: {},
-    result: null,
-    toggleRoom: () => {
-    }
+    result: null
 })
 
 const client = new Client()
