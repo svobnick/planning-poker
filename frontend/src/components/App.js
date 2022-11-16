@@ -1,5 +1,5 @@
 import React from 'react';
-import Room from "./Room";
+import RoomComponent from "./RoomComponent";
 import Start from "./Start";
 import About from "./About";
 import Rules from "./Rules";
@@ -7,7 +7,7 @@ import Contacts from "./Contacts";
 
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route
 } from 'react-router-dom';
 
@@ -17,13 +17,13 @@ class App extends React.Component {
         return (
             <Router>
                 <div className="App">
-                    <Switch>
-                        <Route exact path="/" component={Start}/>
-                        <Route exact path="/about" component={About}/>
-                        <Route exact path="/rules" component={Rules}/>
-                        <Route exact path="/contacts" component={Contacts}/>
-                        <Route exact path="/room/:roomId" component={Room}/>
-                    </Switch>
+                    <Routes>
+                        <Route path="/" element={<Start/>}/>
+                        <Route path="/about" element={<About/>}/>
+                        <Route path="/rules" element={<Rules/>}/>
+                        <Route path="/contacts" element={<Contacts/>}/>
+                        <Route path="/room/:roomId" element={<RoomComponent/>}/>
+                    </Routes>
                 </div>
             </Router>
         );

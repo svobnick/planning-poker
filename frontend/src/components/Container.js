@@ -7,7 +7,7 @@ import '../styles/layout/_head.scss';
 
 import Logo from '../images/ill.png';
 
-import Enter from "./Enter";
+import EnterComponent from "./EnterComponent";
 import Nav from "./Nav";
 
 
@@ -21,7 +21,7 @@ class Container extends React.Component {
                 </div>
                 <form className="form">
                     <h2 className="form__title">Let's start!</h2>
-                    <Enter/>
+                    <EnterComponent/>
                     <Nav/>
                 </form>
             </div>

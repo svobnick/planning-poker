@@ -3,7 +3,6 @@ import React from 'react';
 import '../styles/helpers/_mixins.scss';
 import '../styles/layout/_back.scss';
 
-
 class Back extends React.Component {
     render() {
         return (

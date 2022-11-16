@@ -1,7 +1,6 @@
 import React from 'react';
 
 import '../styles/layout/_menu.scss';
-import {withRouter} from "react-router";
 
 
 class Menu extends React.Component {
@@ -20,4 +19,4 @@ class Menu extends React.Component {
     }
 }
 
-export default withRouter(Menu);
+export default Menu;

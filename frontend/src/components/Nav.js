@@ -1,5 +1,4 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 
 import '../styles/helpers/_mixins.scss';
 import '../styles/layout/_nav.scss';
@@ -33,4 +32,4 @@ class Nav extends React.Component {
 
 }
 
-export default withRouter(Nav);
+export default Nav;
